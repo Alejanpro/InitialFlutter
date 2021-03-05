@@ -69,3 +69,31 @@ jobs:
       - name: Install dependencies ubuntu
         if: matrix.platform.host == 'ubuntu-latest'
         run: sudo apt-get install llvm-dev
+
+      - name: Install dependencies macos
+        if: matrix.platform.host == 'macos-latest'
+        run: brew install llvm
+
+      - name: Install dependencies windows
+        if: matrix.platform.host == 'windows-latest'
+        run: choco install llvm
+
+      - name: Install rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: ${{ matrix.toolchain.rust }}
+          target: ${{ matrix.platform.target }}
+
+      - name: Install cargo-apk
+        if: contains(matrix.platform.target, 'android')
+        uses: baptiste0928/cargo-install@bf6758885262d0e6f61089a9d8c8790d3ac3368f # v1.3.0
+        with:
+          crate: cargo-apk
+
+      - name: Build
+        if: contains(matrix.platform.target, 'android') == false
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --all --target ${{ matrix.platform.target }}
