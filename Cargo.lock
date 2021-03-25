@@ -1177,3 +1177,44 @@ dependencies = [
 [[package]]
 name = "libm"
 version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7fc7aa29613bd6a620df431842069224d8bc9011086b1db4c0e0cd47fa03ec9a"
+
+[[package]]
+name = "libp2p"
+version = "0.50.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2e0a0d2f693675f49ded13c5d510c48b78069e23cbd9108d7ccd59f6dc568819"
+dependencies = [
+ "bytes",
+ "futures",
+ "futures-timer",
+ "getrandom 0.2.8",
+ "instant",
+ "libp2p-core",
+ "libp2p-dns",
+ "libp2p-mdns",
+ "libp2p-noise",
+ "libp2p-quic",
+ "libp2p-request-response",
+ "libp2p-swarm",
+ "libp2p-tcp",
+ "libp2p-yamux",
+ "multiaddr",
+ "parking_lot",
+ "pin-project",
+ "smallvec",
+]
+
+[[package]]
+name = "libp2p-bitswap"
+version = "0.25.0"
+dependencies = [
+ "async-std",
+ "async-trait",
+ "env_logger",
+ "fnv",
+ "futures",
+ "lazy_static",
+ "libipld",
+ "libp2p",
