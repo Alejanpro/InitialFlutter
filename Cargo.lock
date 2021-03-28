@@ -1391,3 +1391,42 @@ dependencies = [
  "futures",
  "futures-timer",
  "if-watch",
+ "libc",
+ "libp2p-core",
+ "log",
+ "socket2",
+]
+
+[[package]]
+name = "libp2p-tls"
+version = "0.1.0-alpha"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f7905ce0d040576634e8a3229a7587cc8beab83f79db6023800f1792895defa8"
+dependencies = [
+ "futures",
+ "futures-rustls",
+ "libp2p-core",
+ "rcgen",
+ "ring",
+ "rustls",
+ "thiserror",
+ "webpki",
+ "x509-parser",
+ "yasna",
+]
+
+[[package]]
+name = "libp2p-yamux"
+version = "0.42.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4f63594a0aa818642d9d4915c791945053877253f08a3626f13416b5cd928a29"
+dependencies = [
+ "futures",
+ "libp2p-core",
+ "log",
+ "parking_lot",
+ "thiserror",
+ "yamux",
+]
+
+[[package]]
