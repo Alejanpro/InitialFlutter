@@ -1373,3 +1373,21 @@ dependencies = [
  "futures-timer",
  "instant",
  "libp2p-core",
+ "log",
+ "pin-project",
+ "rand 0.8.5",
+ "smallvec",
+ "thiserror",
+ "void",
+]
+
+[[package]]
+name = "libp2p-tcp"
+version = "0.38.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b4b257baf6df8f2df39678b86c578961d48cc8b68642a12f0f763f56c8e5858d"
+dependencies = [
+ "async-io",
+ "futures",
+ "futures-timer",
+ "if-watch",
