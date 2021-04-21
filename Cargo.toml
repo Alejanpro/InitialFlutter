@@ -1,1 +1,3 @@
-[packag
+[package]
+name = "libp2p-bitswap"
+v
