@@ -2,4 +2,5 @@
 name = "libp2p-bitswap"
 version = "0.25.0"
 authors = ["David Craven <david@craven.ch>"]
-e
+edition = "2018"
+descriptio
