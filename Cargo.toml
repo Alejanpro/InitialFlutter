@@ -7,4 +7,5 @@ description = "Implementation of the ipfs bitswap protocol."
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/ipfs-rust/libp2p-bitswap"
 
-[feat
+[features]
+compat = ["prost", "prost-build"
