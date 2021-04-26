@@ -11,4 +11,4 @@ repository = "https://github.com/ipfs-rust/libp2p-bitswap"
 compat = ["prost", "prost-build"]
 
 [build-dependencies]
-prost-build = 
+prost-build = { version = "0.11", optional =
