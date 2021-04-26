@@ -8,4 +8,7 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/ipfs-rust/libp2p-bitswap"
 
 [features]
-compat = ["prost", "prost-build"
+compat = ["prost", "prost-build"]
+
+[build-dependencies]
+prost-build = 
