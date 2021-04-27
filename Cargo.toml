@@ -18,4 +18,4 @@ async-trait = "0.1.52"
 fnv = "1.0.7"
 futures = "0.3.19"
 lazy_static = "1.4.0"
-libipld = {
+libipld = { version = "0.15.0", default-features = 
