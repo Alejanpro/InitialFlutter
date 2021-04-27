@@ -17,4 +17,5 @@ prost-build = { version = "0.11", optional = true }
 async-trait = "0.1.52"
 fnv = "1.0.7"
 futures = "0.3.19"
-lazy_sta
+lazy_static = "1.4.0"
+libipld = {
