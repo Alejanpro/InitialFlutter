@@ -19,4 +19,5 @@ fnv = "1.0.7"
 futures = "0.3.19"
 lazy_static = "1.4.0"
 libipld = { version = "0.15.0", default-features = false }
-libp2p = { version = "0.50.0", f
+libp2p = { version = "0.50.0", features = ["request-response"] }
+prom
