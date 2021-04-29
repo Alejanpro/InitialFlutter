@@ -23,4 +23,5 @@ libp2p = { version = "0.50.0", features = ["request-response"] }
 prometheus = "0.13.0"
 prost = { version = "0.11", optional = true }
 thiserror = "1.0.30"
-tracing = "0.1.29
+tracing = "0.1.29"
+unsigned-varint = { version = "0.7.1", fea
