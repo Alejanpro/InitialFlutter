@@ -27,4 +27,4 @@ tracing = "0.1.29"
 unsigned-varint = { version = "0.7.1", features = ["futures", "std"] }
 
 [dev-dependencies]
-async-std = { version 
+async-std = { version = "1.10.0", features = ["attributes"] }
