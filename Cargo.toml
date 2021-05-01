@@ -29,4 +29,5 @@ unsigned-varint = { version = "0.7.1", features = ["futures", "std"] }
 [dev-dependencies]
 async-std = { version = "1.10.0", features = ["attributes"] }
 env_logger = "0.9.0"
-libipld = { version = "0.15.0", default-features = false, features = ["dag-c
+libipld = { version = "0.15.0", default-features = false, features = ["dag-cbor"] }
+libp2p = { version = "0.50
