@@ -32,4 +32,4 @@ env_logger = "0.9.0"
 libipld = { version = "0.15.0", default-features = false, features = ["dag-cbor"] }
 libp2p = { version = "0.50.0", features = ["tcp", "noise", "yamux", "rsa", "async-std"] }
 multihash = { version = "0.17.0", default-features = false, features = ["blake3", "sha2"] }
-tracing-subscribe
+tracing-subscriber = { version = "0.3.5", f
