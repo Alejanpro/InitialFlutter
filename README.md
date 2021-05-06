@@ -1,1 +1,1 @@
-[![Crates.io](https://im
+[![Crates.io](https://img.shields.io/crates/v/libp2p-b
