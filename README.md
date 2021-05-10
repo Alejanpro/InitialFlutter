@@ -3,4 +3,6 @@
 
 # libp2p-bitswap
 
-Implementation of th
+Implementation of the bitswap protocol.
+
+## Efficient
