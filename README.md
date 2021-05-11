@@ -5,4 +5,6 @@
 
 Implementation of the bitswap protocol.
 
-## Efficient
+## Efficiently syncing dags of blocks
+
+Bi
