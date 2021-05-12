@@ -7,4 +7,4 @@ Implementation of the bitswap protocol.
 
 ## Efficiently syncing dags of blocks
 
-Bitswap is a very simple protocol. I
+Bitswap is a very simple protocol. It was adapted and simplified fo
