@@ -11,4 +11,5 @@ Bitswap is a very simple protocol. It was adapted and simplified for ipfs-embed.
 format can be represented by the following enums.
 
 ```rust
-pub en
+pub enum BitswapRequest {
+    Have
