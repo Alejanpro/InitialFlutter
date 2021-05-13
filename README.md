@@ -8,4 +8,7 @@ Implementation of the bitswap protocol.
 ## Efficiently syncing dags of blocks
 
 Bitswap is a very simple protocol. It was adapted and simplified for ipfs-embed. The message
-format can be represented by th
+format can be represented by the following enums.
+
+```rust
+pub en
