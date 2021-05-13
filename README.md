@@ -16,4 +16,5 @@ pub enum BitswapRequest {
     Block(Cid),
 }
 
-pub enu
+pub enum BitswapResponse {
+    Have(
