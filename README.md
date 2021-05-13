@@ -12,4 +12,8 @@ format can be represented by the following enums.
 
 ```rust
 pub enum BitswapRequest {
-    Have
+    Have(Cid),
+    Block(Cid),
+}
+
+pub enu
