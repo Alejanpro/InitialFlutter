@@ -22,4 +22,4 @@ pub enum BitswapResponse {
 }
 ```
 
-The mechanism for locating providers can be abstracted. A dh
+The mechanism for locating providers can be abstracted. A dht can be plugged in or a centr
