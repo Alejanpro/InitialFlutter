@@ -17,4 +17,6 @@ pub enum BitswapRequest {
 }
 
 pub enum BitswapResponse {
-    Have(
+    Have(bool),
+    Block(Vec<u8>),
+}
