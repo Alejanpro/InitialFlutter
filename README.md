@@ -22,4 +22,4 @@ pub enum BitswapResponse {
 }
 ```
 
-The mechanism for locating
+The mechanism for locating providers can be abstracted. A dh
