@@ -22,4 +22,5 @@ pub enum BitswapResponse {
 }
 ```
 
-The mechanism for locating providers can be abstracted. A dht can be plugged in or a centr
+The mechanism for locating providers can be abstracted. A dht can be plugged in or a centralized
+db query. The bitswap api lo
