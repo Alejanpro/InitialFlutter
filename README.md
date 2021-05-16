@@ -27,4 +27,5 @@ db query. The bitswap api looks as follows:
 
 ```rust
 #[derive(Debug)]
-pub enum Bitswap
+pub enum BitswapEvent {
+    /// Received a b
