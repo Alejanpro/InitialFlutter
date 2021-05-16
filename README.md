@@ -26,4 +26,5 @@ The mechanism for locating providers can be abstracted. A dht can be plugged in 
 db query. The bitswap api looks as follows:
 
 ```rust
-#[deriv
+#[derive(Debug)]
+pub enum Bitswap
