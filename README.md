@@ -28,4 +28,5 @@ db query. The bitswap api looks as follows:
 ```rust
 #[derive(Debug)]
 pub enum BitswapEvent {
-    /// Received a block from a peer. Includes the number of
+    /// Received a block from a peer. Includes the number of known missing blocks for a
+    /
