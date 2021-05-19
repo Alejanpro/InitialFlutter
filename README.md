@@ -30,4 +30,4 @@ db query. The bitswap api looks as follows:
 pub enum BitswapEvent {
     /// Received a block from a peer. Includes the number of known missing blocks for a
     /// sync query. When a block is received and missing blocks is not empty the counter
-    /// i
+    /// is increased. If missing blocks
