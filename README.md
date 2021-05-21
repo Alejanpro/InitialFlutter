@@ -31,4 +31,5 @@ pub enum BitswapEvent {
     /// Received a block from a peer. Includes the number of known missing blocks for a
     /// sync query. When a block is received and missing blocks is not empty the counter
     /// is increased. If missing blocks is empty the counter is decremented.
-    Progress(QueryId, 
+    Progress(QueryId, usize),
+    /// A get or sync que
