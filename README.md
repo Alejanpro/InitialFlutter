@@ -32,4 +32,5 @@ pub enum BitswapEvent {
     /// sync query. When a block is received and missing blocks is not empty the counter
     /// is increased. If missing blocks is empty the counter is decremented.
     Progress(QueryId, usize),
-    /// A get or sync que
+    /// A get or sync query completed.
+    Co
