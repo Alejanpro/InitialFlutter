@@ -33,4 +33,7 @@ pub enum BitswapEvent {
     /// is increased. If missing blocks is empty the counter is decremented.
     Progress(QueryId, usize),
     /// A get or sync query completed.
-    Complete(QueryId, Result<()>
+    Complete(QueryId, Result<()>),
+}
+
+pub trait BitswapSt
