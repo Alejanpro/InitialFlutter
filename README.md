@@ -36,4 +36,5 @@ pub enum BitswapEvent {
     Complete(QueryId, Result<()>),
 }
 
-pub trait BitswapSt
+pub trait BitswapStore: Send + Sync + 'static {
+    /// Th
