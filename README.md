@@ -37,4 +37,5 @@ pub enum BitswapEvent {
 }
 
 pub trait BitswapStore: Send + Sync + 'static {
-    /// Th
+    /// The store params.
+    type Params: Stor
