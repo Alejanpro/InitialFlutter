@@ -39,4 +39,4 @@ pub enum BitswapEvent {
 pub trait BitswapStore: Send + Sync + 'static {
     /// The store params.
     type Params: StoreParams;
-    /// A have query needs to know if the block st
+    /// A have query needs to know if the block store contains the 
