@@ -40,4 +40,4 @@ pub trait BitswapStore: Send + Sync + 'static {
     /// The store params.
     type Params: StoreParams;
     /// A have query needs to know if the block store contains the block.
-    fn contains(&mu
+    fn contains(&mut self, cid: &Cid) -> Resul
