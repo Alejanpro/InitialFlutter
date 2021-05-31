@@ -42,4 +42,5 @@ pub trait BitswapStore: Send + Sync + 'static {
     /// A have query needs to know if the block store contains the block.
     fn contains(&mut self, cid: &Cid) -> Result<bool>;
     /// A block query needs to retrieve the block from the store.
-    fn get(&mut self, cid: &Cid) ->
+    fn get(&mut self, cid: &Cid) -> Result<Option<Vec<u8>>>;
+    /// A 
