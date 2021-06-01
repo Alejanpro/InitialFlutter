@@ -43,4 +43,5 @@ pub trait BitswapStore: Send + Sync + 'static {
     fn contains(&mut self, cid: &Cid) -> Result<bool>;
     /// A block query needs to retrieve the block from the store.
     fn get(&mut self, cid: &Cid) -> Result<Option<Vec<u8>>>;
-    /// A block response needs to inse
+    /// A block response needs to insert the block into the store.
+    fn in
