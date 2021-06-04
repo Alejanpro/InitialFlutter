@@ -49,4 +49,5 @@ pub trait BitswapStore: Send + Sync + 'static {
     fn missing_blocks(&mut self, cid: &Cid) -> Result<Vec<Cid>>;
 }
 
-pub struct 
+pub struct BitswapConfig {
+    /// Timeout of
