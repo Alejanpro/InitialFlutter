@@ -46,4 +46,7 @@ pub trait BitswapStore: Send + Sync + 'static {
     /// A block response needs to insert the block into the store.
     fn insert(&mut self, block: &Block<Self::Params>) -> Result<()>;
     /// A sync query needs a list of missing blocks to make progress.
-    fn missing_blocks(&mut self, cid: &Cid) 
+    fn missing_blocks(&mut self, cid: &Cid) -> Result<Vec<Cid>>;
+}
+
+pub struct 
