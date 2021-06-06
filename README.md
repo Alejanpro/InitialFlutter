@@ -52,4 +52,5 @@ pub trait BitswapStore: Send + Sync + 'static {
 pub struct BitswapConfig {
     /// Timeout of a request.
     pub request_timeout: Duration,
-    /// Time a co
+    /// Time a connection is kept alive.
+    pub connection
