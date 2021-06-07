@@ -56,4 +56,4 @@ pub struct BitswapConfig {
     pub connection_keep_alive: Duration,
 }
 
-i
+impl<P: StoreParams> Bit
