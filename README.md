@@ -56,4 +56,5 @@ pub struct BitswapConfig {
     pub connection_keep_alive: Duration,
 }
 
-impl<P: StoreParams> Bit
+impl<P: StoreParams> Bitswap<P> {
+    /// Creates a new
