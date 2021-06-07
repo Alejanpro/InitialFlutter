@@ -53,4 +53,7 @@ pub struct BitswapConfig {
     /// Timeout of a request.
     pub request_timeout: Duration,
     /// Time a connection is kept alive.
-    pub connection
+    pub connection_keep_alive: Duration,
+}
+
+i
