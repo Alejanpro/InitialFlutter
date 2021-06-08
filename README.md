@@ -58,4 +58,5 @@ pub struct BitswapConfig {
 
 impl<P: StoreParams> Bitswap<P> {
     /// Creates a new `Bitswap` behaviour.
-    pub fn new(co
+    pub fn new(config: BitswapConfig) -> Self;
+
