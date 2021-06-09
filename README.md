@@ -61,4 +61,4 @@ impl<P: StoreParams> Bitswap<P> {
     pub fn new(config: BitswapConfig) -> Self;
 
     /// Adds an address for a peer.
-    pub fn add_address(&
+    pub fn add_address(&mut self, peer_id: &PeerId, addr: 
