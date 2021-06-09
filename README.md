@@ -60,4 +60,5 @@ impl<P: StoreParams> Bitswap<P> {
     /// Creates a new `Bitswap` behaviour.
     pub fn new(config: BitswapConfig) -> Self;
 
-    /// Adds an address f
+    /// Adds an address for a peer.
+    pub fn add_address(&
