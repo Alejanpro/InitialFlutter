@@ -64,4 +64,6 @@ impl<P: StoreParams> Bitswap<P> {
     pub fn add_address(&mut self, peer_id: &PeerId, addr: Multiaddr);
 
     /// Removes an address for a peer.
-    pub fn remove_address(&mut self, peer_id: &PeerId, a
+    pub fn remove_address(&mut self, peer_id: &PeerId, addr: &Multiaddr);
+
+    //
