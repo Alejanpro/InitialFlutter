@@ -66,4 +66,5 @@ impl<P: StoreParams> Bitswap<P> {
     /// Removes an address for a peer.
     pub fn remove_address(&mut self, peer_id: &PeerId, addr: &Multiaddr);
 
-    /// Starts a get query with
+    /// Starts a get query with an initial guess of providers.
+ 
