@@ -69,4 +69,4 @@ impl<P: StoreParams> Bitswap<P> {
     /// Starts a get query with an initial guess of providers.
     pub fn get(&mut self, cid: Cid, peers: impl Iterator<Item = PeerId>) -> QueryId;
 
-    /// Starts a sync query with 
+    /// Starts a sync query with an the initial set of m
