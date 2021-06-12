@@ -67,4 +67,6 @@ impl<P: StoreParams> Bitswap<P> {
     pub fn remove_address(&mut self, peer_id: &PeerId, addr: &Multiaddr);
 
     /// Starts a get query with an initial guess of providers.
-    pub fn get(&mut self, cid: Cid, peers: impl Iterator<Item = PeerId>) -> Query
+    pub fn get(&mut self, cid: Cid, peers: impl Iterator<Item = PeerId>) -> QueryId;
+
+    /// Starts a sync query with 
