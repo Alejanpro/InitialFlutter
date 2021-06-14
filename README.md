@@ -70,4 +70,4 @@ impl<P: StoreParams> Bitswap<P> {
     pub fn get(&mut self, cid: Cid, peers: impl Iterator<Item = PeerId>) -> QueryId;
 
     /// Starts a sync query with an the initial set of missing blocks.
-    pub fn sync(&mut self, cid: Cid, peers: Vec<P
+    pub fn sync(&mut self, cid: Cid, peers: Vec<PeerId>, missing: impl 
