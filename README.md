@@ -71,3 +71,5 @@ impl<P: StoreParams> Bitswap<P> {
 
     /// Starts a sync query with an the initial set of missing blocks.
     pub fn sync(&mut self, cid: Cid, peers: Vec<PeerId>, missing: impl Iterator<Item = Cid>) -> QueryId;
+
+    /// Cancels an in prog
