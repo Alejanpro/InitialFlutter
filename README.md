@@ -73,4 +73,4 @@ impl<P: StoreParams> Bitswap<P> {
     pub fn sync(&mut self, cid: Cid, peers: Vec<PeerId>, missing: impl Iterator<Item = Cid>) -> QueryId;
 
     /// Cancels an in progress query. Returns true if a query was cancelled.
-   
+    pub fn cancel(&mut self, id: Quer
