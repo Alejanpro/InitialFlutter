@@ -75,4 +75,4 @@ impl<P: StoreParams> Bitswap<P> {
     /// Cancels an in progress query. Returns true if a query was cancelled.
     pub fn cancel(&mut self, id: QueryId) -> bool;
 
-    /// Regist
+    /// Register bitswap stats in a prometheus registry.
