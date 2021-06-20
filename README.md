@@ -76,3 +76,4 @@ impl<P: StoreParams> Bitswap<P> {
     pub fn cancel(&mut self, id: QueryId) -> bool;
 
     /// Register bitswap stats in a prometheus registry.
+    pub fn register_metrics(&self,
