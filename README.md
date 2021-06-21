@@ -80,4 +80,4 @@ impl<P: StoreParams> Bitswap<P> {
 }
 ```
 
-So what happens when you create a
+So what happens when you create a get request? First all the p
