@@ -77,3 +77,7 @@ impl<P: StoreParams> Bitswap<P> {
 
     /// Register bitswap stats in a prometheus registry.
     pub fn register_metrics(&self, registry: &Registry) -> Result<()>;
+}
+```
+
+So what happens when you create a
