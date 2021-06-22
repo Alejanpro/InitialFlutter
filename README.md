@@ -80,4 +80,5 @@ impl<P: StoreParams> Bitswap<P> {
 }
 ```
 
-So what happens when you create a get request? First all the providers in the initial s
+So what happens when you create a get request? First all the providers in the initial set
+are queried with the have requ
