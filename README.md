@@ -81,4 +81,4 @@ impl<P: StoreParams> Bitswap<P> {
 ```
 
 So what happens when you create a get request? First all the providers in the initial set
-are queried with the have request. As an optimization
+are queried with the have request. As an optimization, in every batch of querie
