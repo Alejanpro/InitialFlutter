@@ -84,4 +84,4 @@ So what happens when you create a get request? First all the providers in the in
 are queried with the have request. As an optimization, in every batch of queries a block
 request is sent instead. If the get query finds a block it returns a query complete. If the
 block wasn't found in the initial set, a `Providers` event is emitted. This is where
-the bitswap consumer tries to locate providers by for example
+the bitswap consumer tries to locate providers by for example performing a dht lookup. 
