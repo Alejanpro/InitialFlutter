@@ -85,4 +85,5 @@ are queried with the have request. As an optimization, in every batch of queries
 request is sent instead. If the get query finds a block it returns a query complete. If the
 block wasn't found in the initial set, a `Providers` event is emitted. This is where
 the bitswap consumer tries to locate providers by for example performing a dht lookup. After
-the locating of providers completes, it is signaled by calling `injec
+the locating of providers completes, it is signaled by calling `inject_providers`. The query
+manag
