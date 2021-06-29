@@ -86,4 +86,4 @@ request is sent instead. If the get query finds a block it returns a query compl
 block wasn't found in the initial set, a `Providers` event is emitted. This is where
 the bitswap consumer tries to locate providers by for example performing a dht lookup. After
 the locating of providers completes, it is signaled by calling `inject_providers`. The query
-manag
+manager then performs bitswap 
