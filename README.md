@@ -87,4 +87,6 @@ block wasn't found in the initial set, a `Providers` event is emitted. This is w
 the bitswap consumer tries to locate providers by for example performing a dht lookup. After
 the locating of providers completes, it is signaled by calling `inject_providers`. The query
 manager then performs bitswap requests using the new provider set which results in the block
-being found or a `Bl
+being found or a `BlockNotFound` error.
+
+Often we wa
