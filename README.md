@@ -89,4 +89,5 @@ the locating of providers completes, it is signaled by calling `inject_providers
 manager then performs bitswap requests using the new provider set which results in the block
 being found or a `BlockNotFound` error.
 
-Often we want to sync an entire dag of blocks. We can efficiently syn
+Often we want to sync an entire dag of blocks. We can efficiently sync dags of blocks by adding
+a sync q
