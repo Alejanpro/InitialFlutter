@@ -90,4 +90,4 @@ manager then performs bitswap requests using the new provider set which results 
 being found or a `BlockNotFound` error.
 
 Often we want to sync an entire dag of blocks. We can efficiently sync dags of blocks by adding
-a sync query that runs get queries in pa
+a sync query that runs get queries in parallel for all the refe
