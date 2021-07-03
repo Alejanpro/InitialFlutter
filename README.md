@@ -95,4 +95,4 @@ providers that had a block is used as the initial set in a reference query.
 
 ## License
 
-MIT OR Apa
+MIT OR Apache-2.0
