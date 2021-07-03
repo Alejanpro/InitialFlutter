@@ -91,4 +91,8 @@ being found or a `BlockNotFound` error.
 
 Often we want to sync an entire dag of blocks. We can efficiently sync dags of blocks by adding
 a sync query that runs get queries in parallel for all the references of a block. The set of
-providers that had a block is used as the initial set in a refere
+providers that had a block is used as the initial set in a reference query.
+
+## License
+
+MIT OR Apa
