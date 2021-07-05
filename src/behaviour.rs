@@ -97,3 +97,46 @@ enum BitswapId {
     #[cfg(feature = "compat")]
     Compat(Cid),
 }
+
+enum BitswapChannel {
+    Bitswap(Channel),
+    #[cfg(feature = "compat")]
+    Compat(PeerId, Cid),
+}
+
+/// Network behaviour that handles sending and receiving blocks.
+pub struct Bitswap<P: StoreParams> {
+    /// Inner behaviour.
+    inner: RequestResponse<BitswapCodec<P>>,
+    /// Query manager.
+    query_manager: QueryManager,
+    /// Requests.
+    requests: FnvHashMap<BitswapId, QueryId>,
+    /// Db request channel.
+    db_tx: mpsc::UnboundedSender<DbRequest<P>>,
+    /// Db response channel.
+    db_rx: mpsc::UnboundedReceiver<DbResponse>,
+    /// Compat peers.
+    #[cfg(feature = "compat")]
+    compat: FnvHashSet<PeerId>,
+}
+
+impl<P: StoreParams> Bitswap<P> {
+    /// Creates a new `Bitswap` behaviour.
+    pub fn new<S: BitswapStore<Params = P>>(config: BitswapConfig, store: S) -> Self {
+        let mut rr_config = RequestResponseConfig::default();
+        rr_config.set_connection_keep_alive(config.connection_keep_alive);
+        rr_config.set_request_timeout(config.request_timeout);
+        let protocols = std::iter::once((BitswapProtocol, ProtocolSupport::Full));
+        let inner = RequestResponse::new(BitswapCodec::<P>::default(), protocols, rr_config);
+        let (db_tx, db_rx) = start_db_thread(store);
+        Self {
+            inner,
+            query_manager: Default::default(),
+            requests: Default::default(),
+            db_tx,
+            db_rx,
+            #[cfg(feature = "compat")]
+            compat: Default::default(),
+        }
+    }
