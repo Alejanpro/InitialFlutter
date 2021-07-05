@@ -42,3 +42,31 @@ use std::{pin::Pin, time::Duration};
 pub type Channel = ResponseChannel<BitswapResponse>;
 
 /// Event emitted by the bitswap behaviour.
+#[derive(Debug)]
+pub enum BitswapEvent {
+    /// Received a block from a peer. Includes the number of known missing blocks for a
+    /// sync query. When a block is received and missing blocks is not empty the counter
+    /// is increased. If missing blocks is empty the counter is decremented.
+    Progress(QueryId, usize),
+    /// A get or sync query completed.
+    Complete(QueryId, Result<()>),
+}
+
+/// Trait implemented by a block store.
+pub trait BitswapStore: Send + Sync + 'static {
+    /// The store params.
+    type Params: StoreParams;
+    /// A have query needs to know if the block store contains the block.
+    fn contains(&mut self, cid: &Cid) -> Result<bool>;
+    /// A block query needs to retrieve the block from the store.
+    fn get(&mut self, cid: &Cid) -> Result<Option<Vec<u8>>>;
+    /// A block response needs to insert the block into the store.
+    fn insert(&mut self, block: &Block<Self::Params>) -> Result<()>;
+    /// A sync query needs a list of missing blocks to make progress.
+    fn missing_blocks(&mut self, cid: &Cid) -> Result<Vec<Cid>>;
+}
+
+/// Bitswap configuration.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct BitswapConfig {
+    /// Timeout of a request.
