@@ -70,3 +70,30 @@ pub trait BitswapStore: Send + Sync + 'static {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BitswapConfig {
     /// Timeout of a request.
+    pub request_timeout: Duration,
+    /// Time a connection is kept alive.
+    pub connection_keep_alive: Duration,
+}
+
+impl BitswapConfig {
+    /// Creates a new `BitswapConfig`.
+    pub fn new() -> Self {
+        Self {
+            request_timeout: Duration::from_secs(10),
+            connection_keep_alive: Duration::from_secs(10),
+        }
+    }
+}
+
+impl Default for BitswapConfig {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+enum BitswapId {
+    Bitswap(RequestId),
+    #[cfg(feature = "compat")]
+    Compat(Cid),
+}
