@@ -205,3 +205,32 @@ enum DbResponse {
     Bitswap(BitswapChannel, BitswapResponse),
     MissingBlocks(QueryId, Result<Vec<Cid>>),
 }
+
+fn start_db_thread<S: BitswapStore>(
+    mut store: S,
+) -> (
+    mpsc::UnboundedSender<DbRequest<S::Params>>,
+    mpsc::UnboundedReceiver<DbResponse>,
+) {
+    let (tx, requests) = mpsc::unbounded();
+    let (responses, rx) = mpsc::unbounded();
+    std::thread::spawn(move || {
+        let mut requests: mpsc::UnboundedReceiver<DbRequest<S::Params>> = requests;
+        while let Some(request) = futures::executor::block_on(requests.next()) {
+            match request {
+                DbRequest::Bitswap(channel, request) => {
+                    let response = match request.ty {
+                        RequestType::Have => {
+                            let have = store.contains(&request.cid).ok().unwrap_or_default();
+                            if have {
+                                RESPONSES_TOTAL.with_label_values(&["have"]).inc();
+                            } else {
+                                RESPONSES_TOTAL.with_label_values(&["dont_have"]).inc();
+                            }
+                            tracing::trace!("have {}", have);
+                            BitswapResponse::Have(have)
+                        }
+                        RequestType::Block => {
+                            let block = store.get(&request.cid).ok().unwrap_or_default();
+                            if let Some(data) = block {
+                                RESPONSES_TOTAL.with_label_values(&["block"]).inc();
