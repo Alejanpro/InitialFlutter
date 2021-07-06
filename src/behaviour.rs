@@ -172,3 +172,36 @@ impl<P: StoreParams> Bitswap<P> {
         if res {
             REQUESTS_CANCELED.inc();
         }
+        res
+    }
+
+    /// Registers prometheus metrics.
+    pub fn register_metrics(&self, registry: &Registry) -> Result<()> {
+        registry.register(Box::new(REQUESTS_TOTAL.clone()))?;
+        registry.register(Box::new(REQUEST_DURATION_SECONDS.clone()))?;
+        registry.register(Box::new(REQUESTS_CANCELED.clone()))?;
+        registry.register(Box::new(BLOCK_NOT_FOUND.clone()))?;
+        registry.register(Box::new(PROVIDERS_TOTAL.clone()))?;
+        registry.register(Box::new(MISSING_BLOCKS_TOTAL.clone()))?;
+        registry.register(Box::new(RECEIVED_BLOCK_BYTES.clone()))?;
+        registry.register(Box::new(RECEIVED_INVALID_BLOCK_BYTES.clone()))?;
+        registry.register(Box::new(SENT_BLOCK_BYTES.clone()))?;
+        registry.register(Box::new(RESPONSES_TOTAL.clone()))?;
+        registry.register(Box::new(THROTTLED_INBOUND.clone()))?;
+        registry.register(Box::new(THROTTLED_OUTBOUND.clone()))?;
+        registry.register(Box::new(OUTBOUND_FAILURE.clone()))?;
+        registry.register(Box::new(INBOUND_FAILURE.clone()))?;
+        Ok(())
+    }
+}
+
+enum DbRequest<P: StoreParams> {
+    Bitswap(BitswapChannel, BitswapRequest),
+    Insert(Block<P>),
+    MissingBlocks(QueryId, Cid),
+}
+
+enum DbResponse {
+    Bitswap(BitswapChannel, BitswapResponse),
+    MissingBlocks(QueryId, Result<Vec<Cid>>),
+}
