@@ -140,3 +140,35 @@ impl<P: StoreParams> Bitswap<P> {
             compat: Default::default(),
         }
     }
+
+    /// Adds an address for a peer.
+    pub fn add_address(&mut self, peer_id: &PeerId, addr: Multiaddr) {
+        self.inner.add_address(peer_id, addr);
+    }
+
+    /// Removes an address for a peer.
+    pub fn remove_address(&mut self, peer_id: &PeerId, addr: &Multiaddr) {
+        self.inner.remove_address(peer_id, addr);
+    }
+
+    /// Starts a get query with an initial guess of providers.
+    pub fn get(&mut self, cid: Cid, peers: impl Iterator<Item = PeerId>) -> QueryId {
+        self.query_manager.get(None, cid, peers)
+    }
+
+    /// Starts a sync query with an the initial set of missing blocks.
+    pub fn sync(
+        &mut self,
+        cid: Cid,
+        peers: Vec<PeerId>,
+        missing: impl Iterator<Item = Cid>,
+    ) -> QueryId {
+        self.query_manager.sync(cid, peers, missing)
+    }
+
+    /// Cancels an in progress query. Returns true if a query was cancelled.
+    pub fn cancel(&mut self, id: QueryId) -> bool {
+        let res = self.query_manager.cancel(id);
+        if res {
+            REQUESTS_CANCELED.inc();
+        }
