@@ -267,3 +267,36 @@ fn start_db_thread<S: BitswapStore>(
 
 impl<P: StoreParams> Bitswap<P> {
     /// Processes an incoming bitswap request.
+    fn inject_request(&mut self, channel: BitswapChannel, request: BitswapRequest) {
+        self.db_tx
+            .unbounded_send(DbRequest::Bitswap(channel, request))
+            .ok();
+    }
+
+    /// Processes an incoming bitswap response.
+    fn inject_response(&mut self, id: BitswapId, peer: PeerId, response: BitswapResponse) {
+        if let Some(id) = self.requests.remove(&id) {
+            match response {
+                BitswapResponse::Have(have) => {
+                    self.query_manager
+                        .inject_response(id, Response::Have(peer, have));
+                }
+                BitswapResponse::Block(data) => {
+                    if let Some(info) = self.query_manager.query_info(id) {
+                        let len = data.len();
+                        if let Ok(block) = Block::new(info.cid, data) {
+                            RECEIVED_BLOCK_BYTES.inc_by(len as u64);
+                            self.db_tx.unbounded_send(DbRequest::Insert(block)).ok();
+                            self.query_manager
+                                .inject_response(id, Response::Block(peer, true));
+                        } else {
+                            tracing::error!("received invalid block");
+                            RECEIVED_INVALID_BLOCK_BYTES.inc_by(len as u64);
+                            self.query_manager
+                                .inject_response(id, Response::Block(peer, false));
+                        }
+                    }
+                }
+            }
+        }
+    }
