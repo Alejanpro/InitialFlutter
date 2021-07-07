@@ -234,3 +234,36 @@ fn start_db_thread<S: BitswapStore>(
                             let block = store.get(&request.cid).ok().unwrap_or_default();
                             if let Some(data) = block {
                                 RESPONSES_TOTAL.with_label_values(&["block"]).inc();
+                                SENT_BLOCK_BYTES.inc_by(data.len() as u64);
+                                tracing::trace!("block {}", data.len());
+                                BitswapResponse::Block(data)
+                            } else {
+                                RESPONSES_TOTAL.with_label_values(&["dont_have"]).inc();
+                                tracing::trace!("have false");
+                                BitswapResponse::Have(false)
+                            }
+                        }
+                    };
+                    responses
+                        .unbounded_send(DbResponse::Bitswap(channel, response))
+                        .ok();
+                }
+                DbRequest::Insert(block) => {
+                    if let Err(err) = store.insert(&block) {
+                        tracing::error!("error inserting blocks {}", err);
+                    }
+                }
+                DbRequest::MissingBlocks(id, cid) => {
+                    let res = store.missing_blocks(&cid);
+                    responses
+                        .unbounded_send(DbResponse::MissingBlocks(id, res))
+                        .ok();
+                }
+            }
+        }
+    });
+    (tx, rx)
+}
+
+impl<P: StoreParams> Bitswap<P> {
+    /// Processes an incoming bitswap request.
