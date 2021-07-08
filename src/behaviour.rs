@@ -300,3 +300,29 @@ impl<P: StoreParams> Bitswap<P> {
             }
         }
     }
+
+    fn inject_outbound_failure(
+        &mut self,
+        peer: &PeerId,
+        request_id: RequestId,
+        error: &OutboundFailure,
+    ) {
+        tracing::debug!(
+            "bitswap outbound failure {} {} {:?}",
+            peer,
+            request_id,
+            error
+        );
+        match error {
+            OutboundFailure::DialFailure => {
+                OUTBOUND_FAILURE.with_label_values(&["dial_failure"]).inc();
+            }
+            OutboundFailure::Timeout => {
+                OUTBOUND_FAILURE.with_label_values(&["timeout"]).inc();
+            }
+            OutboundFailure::ConnectionClosed => {
+                OUTBOUND_FAILURE
+                    .with_label_values(&["connection_closed"])
+                    .inc();
+            }
+            OutboundFailure::UnsupportedProtocols => {
