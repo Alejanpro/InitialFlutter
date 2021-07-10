@@ -326,3 +326,31 @@ impl<P: StoreParams> Bitswap<P> {
                     .inc();
             }
             OutboundFailure::UnsupportedProtocols => {
+                OUTBOUND_FAILURE
+                    .with_label_values(&["unsupported_protocols"])
+                    .inc();
+            }
+        }
+    }
+
+    fn inject_inbound_failure(
+        &mut self,
+        peer: &PeerId,
+        request_id: RequestId,
+        error: &InboundFailure,
+    ) {
+        tracing::error!(
+            "bitswap inbound failure {} {} {:?}",
+            peer,
+            request_id,
+            error
+        );
+        match error {
+            InboundFailure::Timeout => {
+                INBOUND_FAILURE.with_label_values(&["timeout"]).inc();
+            }
+            InboundFailure::ConnectionClosed => {
+                INBOUND_FAILURE
+                    .with_label_values(&["connection_closed"])
+                    .inc();
+            }
