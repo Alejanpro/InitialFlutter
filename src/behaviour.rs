@@ -354,3 +354,29 @@ impl<P: StoreParams> Bitswap<P> {
                     .with_label_values(&["connection_closed"])
                     .inc();
             }
+            InboundFailure::UnsupportedProtocols => {
+                INBOUND_FAILURE
+                    .with_label_values(&["unsupported_protocols"])
+                    .inc();
+            }
+            InboundFailure::ResponseOmission => {
+                INBOUND_FAILURE
+                    .with_label_values(&["response_omission"])
+                    .inc();
+            }
+        }
+    }
+}
+
+impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
+    #[cfg(not(feature = "compat"))]
+    type ConnectionHandler =
+        <RequestResponse<BitswapCodec<P>> as NetworkBehaviour>::ConnectionHandler;
+
+    #[cfg(feature = "compat")]
+    #[allow(clippy::type_complexity)]
+    type ConnectionHandler = ConnectionHandlerSelect<
+        <RequestResponse<BitswapCodec<P>> as NetworkBehaviour>::ConnectionHandler,
+        OneShotHandler<CompatProtocol, CompatMessage, InboundMessage>,
+    >;
+    type OutEvent = BitswapEvent;
