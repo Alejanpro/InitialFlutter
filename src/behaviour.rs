@@ -380,3 +380,39 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
         OneShotHandler<CompatProtocol, CompatMessage, InboundMessage>,
     >;
     type OutEvent = BitswapEvent;
+
+    fn new_handler(&mut self) -> Self::ConnectionHandler {
+        #[cfg(not(feature = "compat"))]
+        return self.inner.new_handler();
+        #[cfg(feature = "compat")]
+        ConnectionHandler::select(self.inner.new_handler(), OneShotHandler::default())
+    }
+
+    fn addresses_of_peer(&mut self, peer_id: &PeerId) -> Vec<Multiaddr> {
+        self.inner.addresses_of_peer(peer_id)
+    }
+
+    fn on_swarm_event(&mut self, event: FromSwarm<Self::ConnectionHandler>) {
+        match event {
+            FromSwarm::ConnectionEstablished(ev) => self
+                .inner
+                .on_swarm_event(FromSwarm::ConnectionEstablished(ev)),
+            FromSwarm::ConnectionClosed(ConnectionClosed {
+                peer_id,
+                connection_id,
+                endpoint,
+                handler,
+                remaining_established,
+            }) => {
+                #[cfg(feature = "compat")]
+                if remaining_established == 0 {
+                    self.compat.remove(&peer_id);
+                }
+                #[cfg(feature = "compat")]
+                let (handler, _oneshot) = handler.into_inner();
+                self.inner
+                    .on_swarm_event(FromSwarm::ConnectionClosed(ConnectionClosed {
+                        peer_id,
+                        connection_id,
+                        endpoint,
+                        handler,
