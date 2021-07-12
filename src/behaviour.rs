@@ -416,3 +416,35 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
                         connection_id,
                         endpoint,
                         handler,
+                        remaining_established,
+                    }));
+            }
+            FromSwarm::DialFailure(DialFailure {
+                peer_id,
+                handler,
+                error,
+            }) => {
+                #[cfg(feature = "compat")]
+                let (handler, _oneshot) = handler.into_inner();
+                self.inner
+                    .on_swarm_event(FromSwarm::DialFailure(DialFailure {
+                        peer_id,
+                        handler,
+                        error,
+                    }));
+            }
+            FromSwarm::AddressChange(ev) => self.inner.on_swarm_event(FromSwarm::AddressChange(ev)),
+            FromSwarm::ListenFailure(ListenFailure {
+                local_addr,
+                send_back_addr,
+                handler,
+            }) => {
+                #[cfg(feature = "compat")]
+                let (handler, _oneshot) = handler.into_inner();
+                self.inner
+                    .on_swarm_event(FromSwarm::ListenFailure(ListenFailure {
+                        local_addr,
+                        send_back_addr,
+                        handler,
+                    }));
+            }
