@@ -448,3 +448,37 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
                         handler,
                     }));
             }
+            FromSwarm::NewListener(ev) => self.inner.on_swarm_event(FromSwarm::NewListener(ev)),
+            FromSwarm::NewListenAddr(ev) => self.inner.on_swarm_event(FromSwarm::NewListenAddr(ev)),
+            FromSwarm::ExpiredListenAddr(ev) => {
+                self.inner.on_swarm_event(FromSwarm::ExpiredListenAddr(ev))
+            }
+            FromSwarm::ListenerError(ev) => self.inner.on_swarm_event(FromSwarm::ListenerError(ev)),
+            FromSwarm::ListenerClosed(ev) => {
+                self.inner.on_swarm_event(FromSwarm::ListenerClosed(ev))
+            }
+            FromSwarm::NewExternalAddr(ev) => {
+                self.inner.on_swarm_event(FromSwarm::NewExternalAddr(ev))
+            }
+            FromSwarm::ExpiredExternalAddr(ev) => self
+                .inner
+                .on_swarm_event(FromSwarm::ExpiredExternalAddr(ev)),
+        }
+    }
+
+    fn on_connection_handler_event(
+        &mut self,
+        peer_id: PeerId,
+        conn: ConnectionId,
+        event: <Self::ConnectionHandler as ConnectionHandler>::OutEvent,
+    ) {
+        tracing::trace!(?event, "on_connection_handler_event");
+        #[cfg(not(feature = "compat"))]
+        return self.inner.on_connection_handler_event(peer_id, conn, event);
+        #[cfg(feature = "compat")]
+        match event {
+            EitherOutput::First(event) => {
+                self.inner.on_connection_handler_event(peer_id, conn, event)
+            }
+            EitherOutput::Second(msg) => {
+                for msg in msg.0 {
