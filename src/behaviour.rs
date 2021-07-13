@@ -482,3 +482,32 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
             }
             EitherOutput::Second(msg) => {
                 for msg in msg.0 {
+                    match msg {
+                        CompatMessage::Request(req) => {
+                            tracing::trace!("received compat request");
+                            self.inject_request(BitswapChannel::Compat(peer_id, req.cid), req);
+                        }
+                        CompatMessage::Response(cid, res) => {
+                            tracing::trace!("received compat response");
+                            self.inject_response(BitswapId::Compat(cid), peer_id, res);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    fn poll(
+        &mut self,
+        cx: &mut Context,
+        pp: &mut impl PollParameters,
+    ) -> Poll<NetworkBehaviourAction<Self::OutEvent, Self::ConnectionHandler>> {
+        let mut exit = false;
+        while !exit {
+            exit = true;
+            while let Poll::Ready(Some(response)) = Pin::new(&mut self.db_rx).poll_next(cx) {
+                exit = false;
+                match response {
+                    DbResponse::Bitswap(channel, response) => match channel {
+                        BitswapChannel::Bitswap(channel) => {
+                            self.inner.send_response(channel, response).ok();
