@@ -540,3 +540,25 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
                 exit = false;
                 match query {
                     QueryEvent::Request(id, req) => match req {
+                        Request::Have(peer_id, cid) => {
+                            let req = BitswapRequest {
+                                ty: RequestType::Have,
+                                cid,
+                            };
+                            let rid = self.inner.send_request(&peer_id, req);
+                            self.requests.insert(BitswapId::Bitswap(rid), id);
+                        }
+                        Request::Block(peer_id, cid) => {
+                            let req = BitswapRequest {
+                                ty: RequestType::Block,
+                                cid,
+                            };
+                            let rid = self.inner.send_request(&peer_id, req);
+                            self.requests.insert(BitswapId::Bitswap(rid), id);
+                        }
+                        Request::MissingBlocks(cid) => {
+                            self.db_tx
+                                .unbounded_send(DbRequest::MissingBlocks(id, cid))
+                                .ok();
+                        }
+                    },
