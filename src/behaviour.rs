@@ -562,3 +562,34 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
                                 .ok();
                         }
                     },
+                    QueryEvent::Progress(id, missing) => {
+                        let event = BitswapEvent::Progress(id, missing);
+                        return Poll::Ready(NetworkBehaviourAction::GenerateEvent(event));
+                    }
+                    QueryEvent::Complete(id, res) => {
+                        if res.is_err() {
+                            BLOCK_NOT_FOUND.inc();
+                        }
+                        let event = BitswapEvent::Complete(
+                            id,
+                            res.map_err(|cid| BlockNotFound(cid).into()),
+                        );
+                        return Poll::Ready(NetworkBehaviourAction::GenerateEvent(event));
+                    }
+                }
+            }
+            while let Poll::Ready(event) = self.inner.poll(cx, pp) {
+                exit = false;
+                let event = match event {
+                    NetworkBehaviourAction::GenerateEvent(event) => event,
+                    NetworkBehaviourAction::Dial { opts, handler } => {
+                        #[cfg(feature = "compat")]
+                        let handler = ConnectionHandler::select(handler, Default::default());
+                        return Poll::Ready(NetworkBehaviourAction::Dial { opts, handler });
+                    }
+                    NetworkBehaviourAction::NotifyHandler {
+                        peer_id,
+                        handler,
+                        event,
+                    } => {
+                        return Poll::Ready(NetworkBehaviourAction::NotifyHandler {
