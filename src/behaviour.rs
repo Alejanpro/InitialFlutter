@@ -511,3 +511,32 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
                     DbResponse::Bitswap(channel, response) => match channel {
                         BitswapChannel::Bitswap(channel) => {
                             self.inner.send_response(channel, response).ok();
+                        }
+                        #[cfg(feature = "compat")]
+                        BitswapChannel::Compat(peer_id, cid) => {
+                            let compat = CompatMessage::Response(cid, response);
+                            return Poll::Ready(NetworkBehaviourAction::NotifyHandler {
+                                peer_id,
+                                handler: NotifyHandler::Any,
+                                event: EitherOutput::Second(compat),
+                            });
+                        }
+                    },
+                    DbResponse::MissingBlocks(id, res) => match res {
+                        Ok(missing) => {
+                            MISSING_BLOCKS_TOTAL.inc_by(missing.len() as u64);
+                            self.query_manager
+                                .inject_response(id, Response::MissingBlocks(missing));
+                        }
+                        Err(err) => {
+                            self.query_manager.cancel(id);
+                            let event = BitswapEvent::Complete(id, Err(err));
+                            return Poll::Ready(NetworkBehaviourAction::GenerateEvent(event));
+                        }
+                    },
+                }
+            }
+            while let Some(query) = self.query_manager.next() {
+                exit = false;
+                match query {
+                    QueryEvent::Request(id, req) => match req {
