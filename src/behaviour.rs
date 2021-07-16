@@ -654,3 +654,27 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
                                         peer_id: peer,
                                         handler: NotifyHandler::Any,
                                         event: EitherOutput::Second(CompatMessage::Request(
+                                            request,
+                                        )),
+                                    });
+                                }
+                            }
+                        }
+                        if let Some(id) = self.requests.remove(&BitswapId::Bitswap(request_id)) {
+                            self.query_manager
+                                .inject_response(id, Response::Have(peer, false));
+                        }
+                    }
+                    RequestResponseEvent::InboundFailure {
+                        peer,
+                        request_id,
+                        error,
+                    } => {
+                        self.inject_inbound_failure(&peer, request_id, &error);
+                    }
+                }
+            }
+        }
+        Poll::Pending
+    }
+}
