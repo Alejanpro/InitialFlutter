@@ -616,3 +616,41 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
                             connection,
                         });
                     }
+                };
+                match event {
+                    RequestResponseEvent::Message { peer, message } => match message {
+                        RequestResponseMessage::Request {
+                            request_id: _,
+                            request,
+                            channel,
+                        } => self.inject_request(BitswapChannel::Bitswap(channel), request),
+                        RequestResponseMessage::Response {
+                            request_id,
+                            response,
+                        } => self.inject_response(BitswapId::Bitswap(request_id), peer, response),
+                    },
+                    RequestResponseEvent::ResponseSent { .. } => {}
+                    RequestResponseEvent::OutboundFailure {
+                        peer,
+                        request_id,
+                        error,
+                    } => {
+                        self.inject_outbound_failure(&peer, request_id, &error);
+                        #[cfg(feature = "compat")]
+                        if let OutboundFailure::UnsupportedProtocols = error {
+                            if let Some(id) = self.requests.remove(&BitswapId::Bitswap(request_id))
+                            {
+                                if let Some(info) = self.query_manager.query_info(id) {
+                                    let ty = match info.label {
+                                        "have" => RequestType::Have,
+                                        "block" => RequestType::Block,
+                                        _ => unreachable!(),
+                                    };
+                                    let request = BitswapRequest { ty, cid: info.cid };
+                                    self.requests.insert(BitswapId::Compat(info.cid), id);
+                                    tracing::trace!("adding compat peer {}", peer);
+                                    self.compat.insert(peer);
+                                    return Poll::Ready(NetworkBehaviourAction::NotifyHandler {
+                                        peer_id: peer,
+                                        handler: NotifyHandler::Any,
+                                        event: EitherOutput::Second(CompatMessage::Request(
