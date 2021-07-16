@@ -593,3 +593,26 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
                         event,
                     } => {
                         return Poll::Ready(NetworkBehaviourAction::NotifyHandler {
+                            peer_id,
+                            handler,
+                            #[cfg(not(feature = "compat"))]
+                            event,
+                            #[cfg(feature = "compat")]
+                            event: EitherOutput::First(event),
+                        });
+                    }
+                    NetworkBehaviourAction::ReportObservedAddr { address, score } => {
+                        return Poll::Ready(NetworkBehaviourAction::ReportObservedAddr {
+                            address,
+                            score,
+                        });
+                    }
+                    NetworkBehaviourAction::CloseConnection {
+                        peer_id,
+                        connection,
+                    } => {
+                        return Poll::Ready(NetworkBehaviourAction::CloseConnection {
+                            peer_id,
+                            connection,
+                        });
+                    }
