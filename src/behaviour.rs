@@ -678,3 +678,34 @@ impl<P: StoreParams> NetworkBehaviour for Bitswap<P> {
         Poll::Pending
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use async_std::task;
+    use futures::prelude::*;
+    use libipld::block::Block;
+    use libipld::cbor::DagCborCodec;
+    use libipld::ipld;
+    use libipld::ipld::Ipld;
+    use libipld::multihash::Code;
+    use libipld::store::DefaultParams;
+    use libp2p::core::muxing::StreamMuxerBox;
+    use libp2p::core::transport::Boxed;
+    use libp2p::identity;
+    use libp2p::noise::{Keypair, NoiseConfig, X25519Spec};
+    use libp2p::swarm::SwarmEvent;
+    use libp2p::tcp::{self, async_io};
+    use libp2p::yamux::YamuxConfig;
+    use libp2p::{PeerId, Swarm, Transport};
+    use std::sync::{Arc, Mutex};
+    use std::time::Duration;
+    use tracing_subscriber::fmt::TestWriter;
+
+    fn tracing_try_init() {
+        tracing_subscriber::fmt()
+            .with_env_filter(tracing_subscriber::EnvFilter::from_default_env())
+            .with_writer(TestWriter::new())
+            .try_init()
+            .ok();
+    }
