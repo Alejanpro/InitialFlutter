@@ -709,3 +709,27 @@ mod tests {
             .try_init()
             .ok();
     }
+
+    fn mk_transport() -> (PeerId, Boxed<(PeerId, StreamMuxerBox)>) {
+        let id_key = identity::Keypair::generate_ed25519();
+        let peer_id = id_key.public().to_peer_id();
+        let dh_key = Keypair::<X25519Spec>::new()
+            .into_authentic(&id_key)
+            .unwrap();
+        let noise = NoiseConfig::xx(dh_key).into_authenticated();
+
+        let transport = async_io::Transport::new(tcp::Config::new().nodelay(true))
+            .upgrade(libp2p::core::upgrade::Version::V1)
+            .authenticate(noise)
+            .multiplex(YamuxConfig::default())
+            .timeout(Duration::from_secs(20))
+            .boxed();
+        (peer_id, transport)
+    }
+
+    fn create_block(ipld: Ipld) -> Block<DefaultParams> {
+        Block::encode(DagCborCodec, Code::Blake3_256, &ipld).unwrap()
+    }
+
+    #[derive(Clone, Default)]
+    struct Store(Arc<Mutex<FnvHashMap<Cid, Vec<u8>>>>);
