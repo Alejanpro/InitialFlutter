@@ -733,3 +733,33 @@ mod tests {
 
     #[derive(Clone, Default)]
     struct Store(Arc<Mutex<FnvHashMap<Cid, Vec<u8>>>>);
+
+    impl BitswapStore for Store {
+        type Params = DefaultParams;
+        fn contains(&mut self, cid: &Cid) -> Result<bool> {
+            Ok(self.0.lock().unwrap().contains_key(cid))
+        }
+        fn get(&mut self, cid: &Cid) -> Result<Option<Vec<u8>>> {
+            Ok(self.0.lock().unwrap().get(cid).cloned())
+        }
+        fn insert(&mut self, block: &Block<Self::Params>) -> Result<()> {
+            self.0
+                .lock()
+                .unwrap()
+                .insert(*block.cid(), block.data().to_vec());
+            Ok(())
+        }
+        fn missing_blocks(&mut self, cid: &Cid) -> Result<Vec<Cid>> {
+            let mut stack = vec![*cid];
+            let mut missing = vec![];
+            while let Some(cid) = stack.pop() {
+                if let Some(data) = self.get(&cid)? {
+                    let block = Block::<Self::Params>::new_unchecked(cid, data);
+                    block.references(&mut stack)?;
+                } else {
+                    missing.push(cid);
+                }
+            }
+            Ok(missing)
+        }
+    }
