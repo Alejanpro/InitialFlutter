@@ -763,3 +763,42 @@ mod tests {
             Ok(missing)
         }
     }
+
+    struct Peer {
+        peer_id: PeerId,
+        addr: Multiaddr,
+        store: Store,
+        swarm: Swarm<Bitswap<DefaultParams>>,
+    }
+
+    impl Peer {
+        fn new() -> Self {
+            let (peer_id, trans) = mk_transport();
+            let store = Store::default();
+            let mut swarm = Swarm::with_async_std_executor(
+                trans,
+                Bitswap::new(BitswapConfig::new(), store.clone()),
+                peer_id,
+            );
+            Swarm::listen_on(&mut swarm, "/ip4/127.0.0.1/tcp/0".parse().unwrap()).unwrap();
+            while swarm.next().now_or_never().is_some() {}
+            let addr = Swarm::listeners(&swarm).next().unwrap().clone();
+            Self {
+                peer_id,
+                addr,
+                store,
+                swarm,
+            }
+        }
+
+        fn add_address(&mut self, peer: &Peer) {
+            self.swarm
+                .behaviour_mut()
+                .add_address(&peer.peer_id, peer.addr.clone());
+        }
+
+        fn store(&mut self) -> impl std::ops::DerefMut<Target = FnvHashMap<Cid, Vec<u8>>> + '_ {
+            self.store.0.lock().unwrap()
+        }
+
+        fn swarm(&mut self) -> &mut Swarm<Bitswap<DefaultParams>> {
