@@ -865,3 +865,33 @@ mod tests {
     #[async_std::test]
     async fn test_bitswap_cancel_get() {
         tracing_try_init();
+        let mut peer1 = Peer::new();
+        let mut peer2 = Peer::new();
+        peer2.add_address(&peer1);
+
+        let block = create_block(ipld!(&b"hello world"[..]));
+        peer1.store().insert(*block.cid(), block.data().to_vec());
+        let peer1 = peer1.spawn("peer1");
+
+        let id = peer2
+            .swarm()
+            .behaviour_mut()
+            .get(*block.cid(), std::iter::once(peer1));
+        peer2.swarm().behaviour_mut().cancel(id);
+        let res = peer2.next().now_or_never();
+        println!("{:?}", res);
+        assert!(res.is_none());
+    }
+
+    #[async_std::test]
+    async fn test_bitswap_sync() {
+        tracing_try_init();
+        let mut peer1 = Peer::new();
+        let mut peer2 = Peer::new();
+        peer2.add_address(&peer1);
+
+        let b0 = create_block(ipld!({
+            "n": 0,
+        }));
+        let b1 = create_block(ipld!({
+            "prev": b0.cid(),
