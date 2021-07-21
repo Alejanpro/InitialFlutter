@@ -802,3 +802,35 @@ mod tests {
         }
 
         fn swarm(&mut self) -> &mut Swarm<Bitswap<DefaultParams>> {
+            &mut self.swarm
+        }
+
+        fn spawn(mut self, name: &'static str) -> PeerId {
+            let peer_id = self.peer_id;
+            task::spawn(async move {
+                loop {
+                    let event = self.swarm.next().await;
+                    tracing::debug!("{}: {:?}", name, event);
+                }
+            });
+            peer_id
+        }
+
+        async fn next(&mut self) -> Option<BitswapEvent> {
+            loop {
+                let ev = self.swarm.next().await?;
+                if let SwarmEvent::Behaviour(event) = ev {
+                    return Some(event);
+                }
+            }
+        }
+    }
+
+    fn assert_progress(event: Option<BitswapEvent>, id: QueryId, missing: usize) {
+        if let Some(BitswapEvent::Progress(id2, missing2)) = event {
+            assert_eq!(id2, id);
+            assert_eq!(missing2, missing);
+        } else {
+            panic!("{:?} is not a progress event", event);
+        }
+    }
