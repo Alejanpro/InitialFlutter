@@ -834,3 +834,34 @@ mod tests {
             panic!("{:?} is not a progress event", event);
         }
     }
+
+    fn assert_complete_ok(event: Option<BitswapEvent>, id: QueryId) {
+        if let Some(BitswapEvent::Complete(id2, Ok(()))) = event {
+            assert_eq!(id2, id);
+        } else {
+            panic!("{:?} is not a complete event", event);
+        }
+    }
+
+    #[async_std::test]
+    async fn test_bitswap_get() {
+        tracing_try_init();
+        let mut peer1 = Peer::new();
+        let mut peer2 = Peer::new();
+        peer2.add_address(&peer1);
+
+        let block = create_block(ipld!(&b"hello world"[..]));
+        peer1.store().insert(*block.cid(), block.data().to_vec());
+        let peer1 = peer1.spawn("peer1");
+
+        let id = peer2
+            .swarm()
+            .behaviour_mut()
+            .get(*block.cid(), std::iter::once(peer1));
+
+        assert_complete_ok(peer2.next().await, id);
+    }
+
+    #[async_std::test]
+    async fn test_bitswap_cancel_get() {
+        tracing_try_init();
