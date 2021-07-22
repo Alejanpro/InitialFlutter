@@ -928,3 +928,33 @@ mod tests {
         let block = create_block(ipld!(&b"hello world"[..]));
         peer1.store().insert(*block.cid(), block.data().to_vec());
         let peer1 = peer1.spawn("peer1");
+
+        let id = peer2.swarm().behaviour_mut().sync(
+            *block.cid(),
+            vec![peer1],
+            std::iter::once(*block.cid()),
+        );
+        peer2.swarm().behaviour_mut().cancel(id);
+        let res = peer2.next().now_or_never();
+        println!("{:?}", res);
+        assert!(res.is_none());
+    }
+
+    #[cfg(feature = "compat")]
+    #[async_std::test]
+    async fn compat_test() {
+        tracing_try_init();
+        let cid: Cid = "QmP8njGuyiw9cjkhwHD9nZhyBTHufXFanAvZgcy9xYoWiB"
+            .parse()
+            .unwrap();
+        let peer_id: PeerId = "12D3KooWC1EaEEpghwnPdd89LaPTKEweD1PRLz4aRBkJEA9UiUuS"
+            .parse()
+            .unwrap();
+        let multiaddr: Multiaddr = "/ip4/95.217.194.97/tcp/8008".parse().unwrap();
+
+        let mut peer = Peer::new();
+        peer.swarm()
+            .behaviour_mut()
+            .add_address(&peer_id, multiaddr);
+        let id = peer
+            .swarm()
