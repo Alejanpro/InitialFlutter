@@ -895,3 +895,36 @@ mod tests {
         }));
         let b1 = create_block(ipld!({
             "prev": b0.cid(),
+            "n": 1,
+        }));
+        let b2 = create_block(ipld!({
+            "prev": b1.cid(),
+            "n": 2,
+        }));
+        peer1.store().insert(*b0.cid(), b0.data().to_vec());
+        peer1.store().insert(*b1.cid(), b1.data().to_vec());
+        peer1.store().insert(*b2.cid(), b2.data().to_vec());
+        let peer1 = peer1.spawn("peer1");
+
+        let id =
+            peer2
+                .swarm()
+                .behaviour_mut()
+                .sync(*b2.cid(), vec![peer1], std::iter::once(*b2.cid()));
+
+        assert_progress(peer2.next().await, id, 1);
+        assert_progress(peer2.next().await, id, 1);
+
+        assert_complete_ok(peer2.next().await, id);
+    }
+
+    #[async_std::test]
+    async fn test_bitswap_cancel_sync() {
+        tracing_try_init();
+        let mut peer1 = Peer::new();
+        let mut peer2 = Peer::new();
+        peer2.add_address(&peer1);
+
+        let block = create_block(ipld!(&b"hello world"[..]));
+        peer1.store().insert(*block.cid(), block.data().to_vec());
+        let peer1 = peer1.spawn("peer1");
