@@ -958,3 +958,8 @@ mod tests {
             .add_address(&peer_id, multiaddr);
         let id = peer
             .swarm()
+            .behaviour_mut()
+            .get(cid, std::iter::once(peer_id));
+        assert_complete_ok(peer.next().await, id);
+    }
+}
