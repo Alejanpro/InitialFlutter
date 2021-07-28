@@ -10,4 +10,5 @@ mod bitswap_pb {
     include!(concat!(env!("OUT_DIR"), "/bitswap_pb.rs"));
 }
 
-#[derive(Clone, Debug
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum Comp
