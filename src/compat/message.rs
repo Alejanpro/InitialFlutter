@@ -7,4 +7,7 @@ use std::convert::TryFrom;
 use std::io;
 
 mod bitswap_pb {
-    include!(concat!(env!("OUT_DIR"), "/bitswap_pb.rs"))
+    include!(concat!(env!("OUT_DIR"), "/bitswap_pb.rs"));
+}
+
+#[derive(Clone, Debug
