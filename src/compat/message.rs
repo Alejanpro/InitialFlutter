@@ -12,4 +12,5 @@ mod bitswap_pb {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum CompatMessage {
-    Request(BitswapReques
+    Request(BitswapRequest),
+    Response(Cid, BitswapResp
