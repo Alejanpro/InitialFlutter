@@ -17,4 +17,5 @@ pub enum CompatMessage {
 }
 
 impl CompatMessage {
-    pub fn to_bytes(&self) -> io::Res
+    pub fn to_bytes(&self) -> io::Result<Vec<u8>> {
+        let mut msg
