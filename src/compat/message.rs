@@ -16,4 +16,5 @@ pub enum CompatMessage {
     Response(Cid, BitswapResponse),
 }
 
-impl CompatMessag
+impl CompatMessage {
+    pub fn to_bytes(&self) -> io::Res
