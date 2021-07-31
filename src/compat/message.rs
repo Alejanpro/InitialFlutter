@@ -19,4 +19,5 @@ pub enum CompatMessage {
 impl CompatMessage {
     pub fn to_bytes(&self) -> io::Result<Vec<u8>> {
         let mut msg = bitswap_pb::Message::default();
- 
+        match self {
+            Compa
