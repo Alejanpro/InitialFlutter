@@ -21,4 +21,5 @@ impl CompatMessage {
         let mut msg = bitswap_pb::Message::default();
         match self {
             CompatMessage::Request(BitswapRequest { ty, cid }) => {
-                let mut wantlist = bitswap_pb::message::Wantlist::
+                let mut wantlist = bitswap_pb::message::Wantlist::default();
+                let e
