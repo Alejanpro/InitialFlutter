@@ -24,4 +24,4 @@ impl CompatMessage {
                 let mut wantlist = bitswap_pb::message::Wantlist::default();
                 let entry = bitswap_pb::message::wantlist::Entry {
                     block: cid.to_bytes(),
-         
+                    want_type: match 
