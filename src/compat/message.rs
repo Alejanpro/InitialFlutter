@@ -25,4 +25,5 @@ impl CompatMessage {
                 let entry = bitswap_pb::message::wantlist::Entry {
                     block: cid.to_bytes(),
                     want_type: match ty {
-                        RequestType::Have => bitswap_pb::message::wantlist::WantType::Hav
+                        RequestType::Have => bitswap_pb::message::wantlist::WantType::Have,
+                        Requ
