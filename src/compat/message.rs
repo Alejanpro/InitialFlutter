@@ -27,4 +27,5 @@ impl CompatMessage {
                     want_type: match ty {
                         RequestType::Have => bitswap_pb::message::wantlist::WantType::Have,
                         RequestType::Block => bitswap_pb::message::wantlist::WantType::Block,
-             
+                    } as _,
+                    send_dont_
