@@ -26,4 +26,4 @@ impl CompatMessage {
                     block: cid.to_bytes(),
                     want_type: match ty {
                         RequestType::Have => bitswap_pb::message::wantlist::WantType::Have,
-                        Requ
+                        RequestType::Block => bitswap
