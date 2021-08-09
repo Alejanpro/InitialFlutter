@@ -30,4 +30,5 @@ impl CompatMessage {
                     } as _,
                     send_dont_have: true,
                     cancel: false,
-                    p
+                    priority: 1,
+                }
