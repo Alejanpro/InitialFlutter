@@ -31,4 +31,5 @@ impl CompatMessage {
                     send_dont_have: true,
                     cancel: false,
                     priority: 1,
-                }
+                };
+                wantlist.entri
