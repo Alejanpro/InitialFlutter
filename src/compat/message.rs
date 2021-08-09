@@ -29,4 +29,5 @@ impl CompatMessage {
                         RequestType::Block => bitswap_pb::message::wantlist::WantType::Block,
                     } as _,
                     send_dont_have: true,
-                   
+                    cancel: false,
+                    p
