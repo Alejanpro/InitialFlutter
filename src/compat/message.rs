@@ -34,4 +34,5 @@ impl CompatMessage {
                 };
                 wantlist.entries.push(entry);
                 msg.wantlist = Some(wantlist);
-        
+            }
+            CompatMessage::Res
