@@ -33,4 +33,5 @@ impl CompatMessage {
                     priority: 1,
                 };
                 wantlist.entries.push(entry);
-                msg.wan
+                msg.wantlist = Some(wantlist);
+        
