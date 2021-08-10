@@ -32,4 +32,5 @@ impl CompatMessage {
                     cancel: false,
                     priority: 1,
                 };
-                wantlist.entri
+                wantlist.entries.push(entry);
+                msg.wan
