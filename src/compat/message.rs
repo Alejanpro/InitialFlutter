@@ -35,4 +35,5 @@ impl CompatMessage {
                 wantlist.entries.push(entry);
                 msg.wantlist = Some(wantlist);
             }
-            CompatMessage::Response(cid, BitswapResponse::Have(have)
+            CompatMessage::Response(cid, BitswapResponse::Have(have)) => {
+                le
