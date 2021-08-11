@@ -36,4 +36,4 @@ impl CompatMessage {
                 msg.wantlist = Some(wantlist);
             }
             CompatMessage::Response(cid, BitswapResponse::Have(have)) => {
-                le
+                let block_presence = bitswap_pb::message
