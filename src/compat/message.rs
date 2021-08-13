@@ -38,4 +38,5 @@ impl CompatMessage {
             CompatMessage::Response(cid, BitswapResponse::Have(have)) => {
                 let block_presence = bitswap_pb::message::BlockPresence {
                     cid: cid.to_bytes(),
-            
+                    r#type: if *have {
+  
