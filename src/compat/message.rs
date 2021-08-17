@@ -39,4 +39,4 @@ impl CompatMessage {
                 let block_presence = bitswap_pb::message::BlockPresence {
                     cid: cid.to_bytes(),
                     r#type: if *have {
-                        bits
+                        bitswap_pb::message::B
