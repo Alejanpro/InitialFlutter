@@ -40,4 +40,5 @@ impl CompatMessage {
                     cid: cid.to_bytes(),
                     r#type: if *have {
                         bitswap_pb::message::BlockPresenceType::Have
-        
+                    } else {
+   
