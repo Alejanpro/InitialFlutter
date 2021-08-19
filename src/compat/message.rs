@@ -41,4 +41,4 @@ impl CompatMessage {
                     r#type: if *have {
                         bitswap_pb::message::BlockPresenceType::Have
                     } else {
-   
+                        bitswap_pb::messa
