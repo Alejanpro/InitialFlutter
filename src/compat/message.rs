@@ -42,3 +42,5 @@ impl CompatMessage {
                         bitswap_pb::message::BlockPresenceType::Have
                     } else {
                         bitswap_pb::message::BlockPresenceType::DontHave
+                    } as _,
+    
