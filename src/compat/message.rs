@@ -44,4 +44,4 @@ impl CompatMessage {
                         bitswap_pb::message::BlockPresenceType::DontHave
                     } as _,
                 };
-                ms
+                msg.block_presences.push(block_presence)
