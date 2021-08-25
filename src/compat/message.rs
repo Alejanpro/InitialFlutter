@@ -44,4 +44,6 @@ impl CompatMessage {
                         bitswap_pb::message::BlockPresenceType::DontHave
                     } as _,
                 };
-                msg.block_presences.push(block_presence)
+                msg.block_presences.push(block_presence);
+            }
+            CompatMes
