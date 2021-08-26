@@ -46,4 +46,4 @@ impl CompatMessage {
                 };
                 msg.block_presences.push(block_presence);
             }
-            CompatMes
+            CompatMessage::Response(cid, BitswapRespons
