@@ -46,4 +46,5 @@ impl CompatMessage {
                 };
                 msg.block_presences.push(block_presence);
             }
-            CompatMessage::Response(cid, BitswapRespons
+            CompatMessage::Response(cid, BitswapResponse::Block(bytes)) => {
+                let paylo
