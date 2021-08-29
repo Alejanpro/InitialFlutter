@@ -47,4 +47,4 @@ impl CompatMessage {
                 msg.block_presences.push(block_presence);
             }
             CompatMessage::Response(cid, BitswapResponse::Block(bytes)) => {
-                let paylo
+                let payload = bitswap_pb::message::Blo
