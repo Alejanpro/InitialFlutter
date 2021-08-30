@@ -47,4 +47,5 @@ impl CompatMessage {
                 msg.block_presences.push(block_presence);
             }
             CompatMessage::Response(cid, BitswapResponse::Block(bytes)) => {
-                let payload = bitswap_pb::message::Blo
+                let payload = bitswap_pb::message::Block {
+                    prefix: Pr
