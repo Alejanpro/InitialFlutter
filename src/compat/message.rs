@@ -50,4 +50,5 @@ impl CompatMessage {
                 let payload = bitswap_pb::message::Block {
                     prefix: Prefix::from(cid).to_bytes(),
                     data: bytes.to_vec(),
- 
+                };
+             
