@@ -52,3 +52,6 @@ impl CompatMessage {
                     data: bytes.to_vec(),
                 };
                 msg.payload.push(payload);
+            }
+        }
+        let
