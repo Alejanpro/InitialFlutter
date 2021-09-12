@@ -51,4 +51,4 @@ impl CompatMessage {
                     prefix: Prefix::from(cid).to_bytes(),
                     data: bytes.to_vec(),
                 };
-             
+                msg.payload.push(payload);
