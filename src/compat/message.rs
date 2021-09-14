@@ -54,4 +54,5 @@ impl CompatMessage {
                 msg.payload.push(payload);
             }
         }
-        let mut bytes = Vec::with_capacity(msg.encode
+        let mut bytes = Vec::with_capacity(msg.encoded_len());
+        msg.encode(&mut 
