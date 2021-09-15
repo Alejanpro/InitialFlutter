@@ -55,4 +55,5 @@ impl CompatMessage {
             }
         }
         let mut bytes = Vec::with_capacity(msg.encoded_len());
-        msg.encode(&mut 
+        msg.encode(&mut bytes).map_err(other)?;
+        Ok(b
