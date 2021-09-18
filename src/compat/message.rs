@@ -59,4 +59,5 @@ impl CompatMessage {
         Ok(bytes)
     }
 
-    pub fn from_bytes(bytes: &[u8]) -> io::Res
+    pub fn from_bytes(bytes: &[u8]) -> io::Result<Vec<Self>> {
+        let 
