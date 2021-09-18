@@ -59,4 +59,4 @@ impl CompatMessage {
         Ok(bytes)
     }
 
-    pub fn f
+    pub fn from_bytes(bytes: &[u8]) -> io::Res
