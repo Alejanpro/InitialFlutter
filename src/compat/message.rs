@@ -60,4 +60,4 @@ impl CompatMessage {
     }
 
     pub fn from_bytes(bytes: &[u8]) -> io::Result<Vec<Self>> {
-        let 
+        let msg = bitswap_pb::Message::deco
