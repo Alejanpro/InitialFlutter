@@ -61,4 +61,5 @@ impl CompatMessage {
 
     pub fn from_bytes(bytes: &[u8]) -> io::Result<Vec<Self>> {
         let msg = bitswap_pb::Message::decode(bytes)?;
-        let mut parts 
+        let mut parts = vec![];
+        for entr
