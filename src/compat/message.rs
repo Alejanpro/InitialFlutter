@@ -63,4 +63,5 @@ impl CompatMessage {
         let msg = bitswap_pb::Message::decode(bytes)?;
         let mut parts = vec![];
         for entry in msg.wantlist.unwrap_or_default().entries {
-            if !e
+            if !entry.send_dont_have {
+         
