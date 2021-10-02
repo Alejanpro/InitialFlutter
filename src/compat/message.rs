@@ -66,4 +66,5 @@ impl CompatMessage {
             if !entry.send_dont_have {
                 tracing::error!("message hasn't set `send_dont_have`: skipping");
                 continue;
-      
+            }
+            let cid = Cid::tr
