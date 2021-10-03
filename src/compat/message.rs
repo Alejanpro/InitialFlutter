@@ -68,4 +68,4 @@ impl CompatMessage {
                 continue;
             }
             let cid = Cid::try_from(entry.block).map_err(other)?;
-        
+            let ty = match entry.want_
