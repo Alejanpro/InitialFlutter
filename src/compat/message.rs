@@ -68,4 +68,5 @@ impl CompatMessage {
                 continue;
             }
             let cid = Cid::try_from(entry.block).map_err(other)?;
-            let ty = match entry.want_
+            let ty = match entry.want_type {
+                ty if bi
