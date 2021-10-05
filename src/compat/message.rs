@@ -69,4 +69,4 @@ impl CompatMessage {
             }
             let cid = Cid::try_from(entry.block).map_err(other)?;
             let ty = match entry.want_type {
-                ty if bi
+                ty if bitswap_pb::message::wantlist::WantType
