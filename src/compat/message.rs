@@ -71,4 +71,5 @@ impl CompatMessage {
             let ty = match entry.want_type {
                 ty if bitswap_pb::message::wantlist::WantType::Have as i32 == ty => {
                     RequestType::Have
-      
+                }
+                ty if bits
