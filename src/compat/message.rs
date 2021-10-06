@@ -72,4 +72,5 @@ impl CompatMessage {
                 ty if bitswap_pb::message::wantlist::WantType::Have as i32 == ty => {
                     RequestType::Have
                 }
-                ty if bitswap_pb::message::wantlist::WantType::B
+                ty if bitswap_pb::message::wantlist::WantType::Block as i32 == ty => {
+           
