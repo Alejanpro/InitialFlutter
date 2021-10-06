@@ -72,4 +72,4 @@ impl CompatMessage {
                 ty if bitswap_pb::message::wantlist::WantType::Have as i32 == ty => {
                     RequestType::Have
                 }
-                ty if bits
+                ty if bitswap_pb::message::wantlist::WantType::B
