@@ -76,4 +76,5 @@ impl CompatMessage {
                     RequestType::Block
                 }
                 _ => {
-                    tracing::error!("invalid request type: s
+                    tracing::error!("invalid request type: skipping");
+                    continu
