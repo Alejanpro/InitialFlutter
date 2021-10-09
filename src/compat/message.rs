@@ -77,4 +77,7 @@ impl CompatMessage {
                 }
                 _ => {
                     tracing::error!("invalid request type: skipping");
-                    continu
+                    continue;
+                }
+            };
+ 
