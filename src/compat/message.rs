@@ -80,4 +80,6 @@ impl CompatMessage {
                     continue;
                 }
             };
-            parts.push(CompatMessage::Request(BitswapRequest { ty, ci
+            parts.push(CompatMessage::Request(BitswapRequest { ty, cid }));
+        }
+        f
