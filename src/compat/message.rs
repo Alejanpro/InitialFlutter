@@ -82,4 +82,5 @@ impl CompatMessage {
             };
             parts.push(CompatMessage::Request(BitswapRequest { ty, cid }));
         }
-        f
+        for payload in msg.payload {
+      
