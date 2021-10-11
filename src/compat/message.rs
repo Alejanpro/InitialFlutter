@@ -83,4 +83,4 @@ impl CompatMessage {
             parts.push(CompatMessage::Request(BitswapRequest { ty, cid }));
         }
         for payload in msg.payload {
-      
+            let prefix = Prefix::new(
