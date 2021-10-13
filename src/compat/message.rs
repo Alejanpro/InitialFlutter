@@ -84,4 +84,5 @@ impl CompatMessage {
         }
         for payload in msg.payload {
             let prefix = Prefix::new(&payload.prefix)?;
-            let cid = prefix.to_cid(&payload.dat
+            let cid = prefix.to_cid(&payload.data)?;
+            parts.
