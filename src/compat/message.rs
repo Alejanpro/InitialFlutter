@@ -86,4 +86,5 @@ impl CompatMessage {
             let prefix = Prefix::new(&payload.prefix)?;
             let cid = prefix.to_cid(&payload.data)?;
             parts.push(CompatMessage::Response(
-           
+                cid,
+                Bitsw
