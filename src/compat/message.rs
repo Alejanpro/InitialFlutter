@@ -89,4 +89,5 @@ impl CompatMessage {
                 cid,
                 BitswapResponse::Block(payload.data.to_vec()),
             ));
- 
+        }
+        for presence in m
