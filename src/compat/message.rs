@@ -90,4 +90,5 @@ impl CompatMessage {
                 BitswapResponse::Block(payload.data.to_vec()),
             ));
         }
-        for presence in m
+        for presence in msg.block_presences {
+            
