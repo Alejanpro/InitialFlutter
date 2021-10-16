@@ -87,4 +87,6 @@ impl CompatMessage {
             let cid = prefix.to_cid(&payload.data)?;
             parts.push(CompatMessage::Response(
                 cid,
-                BitswapResponse::Block(pay
+                BitswapResponse::Block(payload.data.to_vec()),
+            ));
+ 
