@@ -91,4 +91,4 @@ impl CompatMessage {
             ));
         }
         for presence in msg.block_presences {
-            
+            let cid = Cid::try_from(pres
