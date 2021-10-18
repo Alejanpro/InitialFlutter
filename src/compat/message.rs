@@ -92,4 +92,5 @@ impl CompatMessage {
         }
         for presence in msg.block_presences {
             let cid = Cid::try_from(presence.cid).map_err(other)?;
-            let have = match presence.r
+            let have = match presence.r#type {
+                ty if bitswa
