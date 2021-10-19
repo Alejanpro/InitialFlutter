@@ -94,4 +94,4 @@ impl CompatMessage {
             let cid = Cid::try_from(presence.cid).map_err(other)?;
             let have = match presence.r#type {
                 ty if bitswap_pb::message::BlockPresenceType::Have as i32 == ty => true,
-          
+                ty if bitswap_pb::mes
