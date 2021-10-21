@@ -96,4 +96,5 @@ impl CompatMessage {
                 ty if bitswap_pb::message::BlockPresenceType::Have as i32 == ty => true,
                 ty if bitswap_pb::message::BlockPresenceType::DontHave as i32 == ty => false,
                 _ => {
-                    tracing::error!("invalid block presence type: sk
+                    tracing::error!("invalid block presence type: skipping");
+                    continue;
