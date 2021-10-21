@@ -95,4 +95,5 @@ impl CompatMessage {
             let have = match presence.r#type {
                 ty if bitswap_pb::message::BlockPresenceType::Have as i32 == ty => true,
                 ty if bitswap_pb::message::BlockPresenceType::DontHave as i32 == ty => false,
- 
+                _ => {
+      
