@@ -98,3 +98,6 @@ impl CompatMessage {
                 _ => {
                     tracing::error!("invalid block presence type: skipping");
                     continue;
+                }
+            };
+   
