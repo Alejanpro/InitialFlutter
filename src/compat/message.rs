@@ -102,3 +102,6 @@ impl CompatMessage {
             };
             parts.push(CompatMessage::Response(cid, BitswapResponse::Have(have)));
         }
+        Ok(parts)
+    }
+}
