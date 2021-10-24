@@ -2,4 +2,5 @@ mod message;
 mod prefix;
 mod protocol;
 
-pub
+pub use message::CompatMessage;
+pub us
