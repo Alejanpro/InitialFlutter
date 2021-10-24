@@ -3,4 +3,4 @@ mod prefix;
 mod protocol;
 
 pub use message::CompatMessage;
-pub us
+pub use protocol::{CompatProtocol, Inboun
