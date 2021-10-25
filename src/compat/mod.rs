@@ -3,4 +3,6 @@ mod prefix;
 mod protocol;
 
 pub use message::CompatMessage;
-pub use protocol::{CompatProtocol, Inboun
+pub use protocol::{CompatProtocol, InboundMessage};
+
+fn other<E: std::error:
