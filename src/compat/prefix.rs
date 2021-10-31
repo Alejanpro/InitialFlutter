@@ -3,4 +3,4 @@ use libipld::cid::{Cid, Version};
 use libipld::multihash::{Code, MultihashDigest};
 use std::convert::TryFrom;
 use std::io::Result;
-use unsigned_varint::{dec
+use unsigned_varint::{decode as varint_decode, encode a
