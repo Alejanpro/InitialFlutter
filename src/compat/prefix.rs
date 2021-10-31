@@ -5,4 +5,4 @@ use std::convert::TryFrom;
 use std::io::Result;
 use unsigned_varint::{decode as varint_decode, encode as varint_encode};
 
-/// Prefix represents all metadata
+/// Prefix represents all metadata of a CID, without the actua
