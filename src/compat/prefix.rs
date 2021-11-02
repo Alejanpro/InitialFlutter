@@ -6,4 +6,5 @@ use std::io::Result;
 use unsigned_varint::{decode as varint_decode, encode as varint_encode};
 
 /// Prefix represents all metadata of a CID, without the actual content.
-#[derive(PartialEq, Eq, Clon
+#[derive(PartialEq, Eq, Clone, Debug)]
+pub struct Prefi
