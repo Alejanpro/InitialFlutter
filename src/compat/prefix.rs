@@ -8,4 +8,5 @@ use unsigned_varint::{decode as varint_decode, encode as varint_encode};
 /// Prefix represents all metadata of a CID, without the actual content.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct Prefix {
-    /// The version 
+    /// The version of CID.
+    pub version: Version,
