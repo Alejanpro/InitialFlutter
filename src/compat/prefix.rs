@@ -10,3 +10,5 @@ use unsigned_varint::{decode as varint_decode, encode as varint_encode};
 pub struct Prefix {
     /// The version of CID.
     pub version: Version,
+    /// The codec of CID.
+    p
