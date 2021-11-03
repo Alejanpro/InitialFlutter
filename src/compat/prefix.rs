@@ -12,4 +12,5 @@ pub struct Prefix {
     pub version: Version,
     /// The codec of CID.
     pub codec: u64,
-    /// The mult
+    /// The multihash type of CID.
+    pub mh_type
