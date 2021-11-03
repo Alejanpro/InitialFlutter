@@ -14,4 +14,5 @@ pub struct Prefix {
     pub codec: u64,
     /// The multihash type of CID.
     pub mh_type: u64,
-    /// The multihash len
+    /// The multihash length of CID.
+    pub mh_len: usi
