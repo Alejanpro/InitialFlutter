@@ -11,4 +11,5 @@ pub struct Prefix {
     /// The version of CID.
     pub version: Version,
     /// The codec of CID.
-    p
+    pub codec: u64,
+    /// The mult
