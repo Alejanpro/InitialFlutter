@@ -19,4 +19,4 @@ pub struct Prefix {
 }
 
 impl Prefix {
-    /// 
+    /// Create a new prefix from encode
