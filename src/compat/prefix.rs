@@ -19,4 +19,5 @@ pub struct Prefix {
 }
 
 impl Prefix {
-    /// Create a new prefix from encode
+    /// Create a new prefix from encoded bytes.
+    pub fn new(data: &[u8
