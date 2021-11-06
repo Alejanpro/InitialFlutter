@@ -21,4 +21,5 @@ pub struct Prefix {
 impl Prefix {
     /// Create a new prefix from encoded bytes.
     pub fn new(data: &[u8]) -> Result<Prefix> {
-        let (raw_version, remain) = varint_decode::u64(data
+        let (raw_version, remain) = varint_decode::u64(data).map_err(other)?;
+        let version = 
