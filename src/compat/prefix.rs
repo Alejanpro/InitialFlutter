@@ -22,4 +22,4 @@ impl Prefix {
     /// Create a new prefix from encoded bytes.
     pub fn new(data: &[u8]) -> Result<Prefix> {
         let (raw_version, remain) = varint_decode::u64(data).map_err(other)?;
-        let version = 
+        let version = Version::try_from(raw_version).m
