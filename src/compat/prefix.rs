@@ -23,4 +23,5 @@ impl Prefix {
     pub fn new(data: &[u8]) -> Result<Prefix> {
         let (raw_version, remain) = varint_decode::u64(data).map_err(other)?;
         let version = Version::try_from(raw_version).map_err(other)?;
-        let (codec, remain) = varint_decode::u64(rema
+        let (codec, remain) = varint_decode::u64(remain).map_err(other)?;
+        let (mh_ty
