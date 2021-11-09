@@ -25,4 +25,4 @@ impl Prefix {
         let version = Version::try_from(raw_version).map_err(other)?;
         let (codec, remain) = varint_decode::u64(remain).map_err(other)?;
         let (mh_type, remain) = varint_decode::u64(remain).map_err(other)?;
-        le
+        let (mh_len, _remain) = varint_dec
