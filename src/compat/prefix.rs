@@ -26,4 +26,5 @@ impl Prefix {
         let (codec, remain) = varint_decode::u64(remain).map_err(other)?;
         let (mh_type, remain) = varint_decode::u64(remain).map_err(other)?;
         let (mh_len, _remain) = varint_decode::usize(remain).map_err(other)?;
-        Ok(Pr
+        Ok(Prefix {
+            version,
