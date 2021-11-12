@@ -28,3 +28,4 @@ impl Prefix {
         let (mh_len, _remain) = varint_decode::usize(remain).map_err(other)?;
         Ok(Prefix {
             version,
+            codec,
