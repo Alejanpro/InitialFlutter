@@ -29,3 +29,5 @@ impl Prefix {
         Ok(Prefix {
             version,
             codec,
+            mh_type,
+            mh_le
