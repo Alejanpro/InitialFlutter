@@ -35,4 +35,4 @@ impl Prefix {
     }
 
     /// Convert the prefix to encoded bytes.
-    p
+    pub fn to_bytes(&self) -> 
