@@ -34,4 +34,5 @@ impl Prefix {
         })
     }
 
-    /// Convert the 
+    /// Convert the prefix to encoded bytes.
+    p
