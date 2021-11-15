@@ -35,4 +35,5 @@ impl Prefix {
     }
 
     /// Convert the prefix to encoded bytes.
-    pub fn to_bytes(&self) -> 
+    pub fn to_bytes(&self) -> Vec<u8> {
+        let mut re
