@@ -38,4 +38,4 @@ impl Prefix {
     pub fn to_bytes(&self) -> Vec<u8> {
         let mut res = Vec::with_capacity(4);
         let mut buf = varint_encode::u64_buffer();
-        let version = varint_encode::u64
+        let version = varint_encode::u64(self.version.into(), &mut
