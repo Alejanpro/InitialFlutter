@@ -47,4 +47,4 @@ impl Prefix {
         let mh_type = varint_encode::u64(self.mh_type, &mut buf);
         res.extend_from_slice(mh_type);
         let mut buf = varint_encode::u64_buffer();
-        let m
+        let mh_len = varint_encode::u64(self.mh_len 
