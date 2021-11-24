@@ -52,4 +52,4 @@ impl Prefix {
         res
     }
 
-    /// Cr
+    /// Create a CID out of the prefix 
