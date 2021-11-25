@@ -52,4 +52,5 @@ impl Prefix {
         res
     }
 
-    /// Create a CID out of the prefix and some data that will b
+    /// Create a CID out of the prefix and some data that will be hashed
+    pub fn to_cid(
