@@ -55,4 +55,4 @@ impl Prefix {
     /// Create a CID out of the prefix and some data that will be hashed
     pub fn to_cid(&self, data: &[u8]) -> Result<Cid> {
         let mh = Code::try_from(self.mh_type).map_err(other)?.digest(data);
-        Cid::new(self.versi
+        Cid::new(self.version, self.codec, mh).map_err(other
