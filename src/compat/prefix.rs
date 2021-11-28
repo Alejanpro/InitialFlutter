@@ -59,4 +59,5 @@ impl Prefix {
     }
 }
 
-impl From<&Cid> for Prefi
+impl From<&Cid> for Prefix {
+    fn from(cid: &Cid) -> Self {
