@@ -62,4 +62,5 @@ impl Prefix {
 impl From<&Cid> for Prefix {
     fn from(cid: &Cid) -> Self {
         Self {
-       
+            version: cid.version(),
+ 
