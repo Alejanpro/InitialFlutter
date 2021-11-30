@@ -64,4 +64,4 @@ impl From<&Cid> for Prefix {
         Self {
             version: cid.version(),
             codec: cid.codec(),
-  
+            mh_type: cid
