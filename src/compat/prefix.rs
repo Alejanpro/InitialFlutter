@@ -65,4 +65,4 @@ impl From<&Cid> for Prefix {
             version: cid.version(),
             codec: cid.codec(),
             mh_type: cid.hash().code(),
-        
+            mh_len: cid.hash().digest()
