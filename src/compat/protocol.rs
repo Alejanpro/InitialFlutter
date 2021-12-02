@@ -105,3 +105,21 @@ mod tests {
                 .await
                 .unwrap();
         };
+
+        let client = async move {
+            let stream = TcpStream::connect(&listener_addr).await.unwrap();
+            upgrade::apply_outbound(
+                stream,
+                CompatMessage::Request(BitswapRequest {
+                    ty: RequestType::Have,
+                    cid: Cid::default(),
+                }),
+                upgrade::Version::V1,
+            )
+            .await
+            .unwrap();
+        };
+
+        future::select(Box::pin(server), Box::pin(client)).await;
+    }
+}
