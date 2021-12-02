@@ -27,3 +27,35 @@ where
     type Output = InboundMessage;
     type Error = io::Error;
     type Future = BoxFuture<'static, Result<Self::Output, Self::Error>>;
+
+    fn upgrade_inbound(self, mut socket: TSocket, _info: Self::Info) -> Self::Future {
+        Box::pin(async move {
+            tracing::trace!("upgrading inbound");
+            let packet = upgrade::read_length_prefixed(&mut socket, MAX_BUF_SIZE)
+                .await
+                .map_err(|err| {
+                    tracing::debug!(%err, "inbound upgrade error");
+                    other(err)
+                })?;
+            socket.close().await?;
+            tracing::trace!("inbound upgrade done, closing");
+            let message = CompatMessage::from_bytes(&packet).map_err(|e| {
+                tracing::debug!(%e, "inbound upgrade error");
+                e
+            })?;
+            tracing::trace!("inbound upgrade closed");
+            Ok(InboundMessage(message))
+        })
+    }
+}
+
+impl UpgradeInfo for CompatMessage {
+    type Info = &'static [u8];
+    type InfoIter = iter::Once<Self::Info>;
+
+    fn protocol_info(&self) -> Self::InfoIter {
+        iter::once(b"/ipfs/bitswap/1.2.0")
+    }
+}
+
+impl<TSocket> OutboundUpgrade<TSocket> for CompatMessage
