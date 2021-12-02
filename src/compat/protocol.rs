@@ -59,3 +59,49 @@ impl UpgradeInfo for CompatMessage {
 }
 
 impl<TSocket> OutboundUpgrade<TSocket> for CompatMessage
+where
+    TSocket: AsyncRead + AsyncWrite + Send + Unpin + 'static,
+{
+    type Output = ();
+    type Error = io::Error;
+    type Future = BoxFuture<'static, Result<Self::Output, Self::Error>>;
+
+    fn upgrade_outbound(self, mut socket: TSocket, _info: Self::Info) -> Self::Future {
+        Box::pin(async move {
+            let bytes = self.to_bytes()?;
+            upgrade::write_length_prefixed(&mut socket, bytes).await?;
+            socket.close().await?;
+            Ok(())
+        })
+    }
+}
+
+#[derive(Debug)]
+pub struct InboundMessage(pub Vec<CompatMessage>);
+
+impl From<()> for InboundMessage {
+    fn from(_: ()) -> Self {
+        Self(Default::default())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::protocol::{BitswapRequest, RequestType};
+    use async_std::net::{TcpListener, TcpStream};
+    use futures::prelude::*;
+    use libipld::Cid;
+    use libp2p::core::upgrade;
+
+    #[async_std::test]
+    async fn test_upgrade() {
+        let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let listener_addr = listener.local_addr().unwrap();
+
+        let server = async move {
+            let incoming = listener.incoming().into_future().await.0.unwrap().unwrap();
+            upgrade::apply_inbound(incoming, CompatProtocol)
+                .await
+                .unwrap();
+        };
