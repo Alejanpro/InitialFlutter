@@ -35,3 +35,33 @@ impl<P: StoreParams> Default for BitswapCodec<P> {
         Self {
             _marker: PhantomData,
             buffer: Vec::with_capacity(capacity),
+        }
+    }
+}
+
+#[async_trait]
+impl<P: StoreParams> RequestResponseCodec for BitswapCodec<P> {
+    type Protocol = BitswapProtocol;
+    type Request = BitswapRequest;
+    type Response = BitswapResponse;
+
+    async fn read_request<T>(&mut self, _: &Self::Protocol, io: &mut T) -> io::Result<Self::Request>
+    where
+        T: AsyncRead + Send + Unpin,
+    {
+        let msg_len = u32_to_usize(aio::read_u32(&mut *io).await.map_err(|e| match e {
+            ReadError::Io(e) => e,
+            err => other(err),
+        })?);
+        if msg_len > MAX_CID_SIZE + 1 {
+            return Err(invalid_data(MessageTooLarge(msg_len)));
+        }
+        self.buffer.resize(msg_len, 0);
+        io.read_exact(&mut self.buffer).await?;
+        let request = BitswapRequest::from_bytes(&self.buffer).map_err(invalid_data)?;
+        Ok(request)
+    }
+
+    async fn read_response<T>(
+        &mut self,
+        _: &Self::Protocol,
