@@ -65,3 +65,41 @@ impl<P: StoreParams> RequestResponseCodec for BitswapCodec<P> {
     async fn read_response<T>(
         &mut self,
         _: &Self::Protocol,
+        io: &mut T,
+    ) -> io::Result<Self::Response>
+    where
+        T: AsyncRead + Send + Unpin,
+    {
+        let msg_len = u32_to_usize(aio::read_u32(&mut *io).await.map_err(|e| match e {
+            ReadError::Io(e) => e,
+            err => other(err),
+        })?);
+        if msg_len > P::MAX_BLOCK_SIZE + 1 {
+            return Err(invalid_data(MessageTooLarge(msg_len)));
+        }
+        self.buffer.resize(msg_len, 0);
+        io.read_exact(&mut self.buffer).await?;
+        let response = BitswapResponse::from_bytes(&self.buffer).map_err(invalid_data)?;
+        Ok(response)
+    }
+
+    async fn write_request<T>(
+        &mut self,
+        _: &Self::Protocol,
+        io: &mut T,
+        req: Self::Request,
+    ) -> io::Result<()>
+    where
+        T: AsyncWrite + Send + Unpin,
+    {
+        self.buffer.clear();
+        req.write_to(&mut self.buffer)?;
+        if self.buffer.len() > MAX_CID_SIZE + 1 {
+            return Err(invalid_data(MessageTooLarge(self.buffer.len())));
+        }
+        let mut buf = unsigned_varint::encode::u32_buffer();
+        let msg_len = unsigned_varint::encode::u32(self.buffer.len() as u32, &mut buf);
+        io.write_all(msg_len).await?;
+        io.write_all(&self.buffer).await?;
+        Ok(())
+    }
