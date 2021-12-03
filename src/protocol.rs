@@ -103,3 +103,35 @@ impl<P: StoreParams> RequestResponseCodec for BitswapCodec<P> {
         io.write_all(&self.buffer).await?;
         Ok(())
     }
+
+    async fn write_response<T>(
+        &mut self,
+        _: &Self::Protocol,
+        io: &mut T,
+        res: Self::Response,
+    ) -> io::Result<()>
+    where
+        T: AsyncWrite + Send + Unpin,
+    {
+        self.buffer.clear();
+        res.write_to(&mut self.buffer)?;
+        if self.buffer.len() > P::MAX_BLOCK_SIZE + 1 {
+            return Err(invalid_data(MessageTooLarge(self.buffer.len())));
+        }
+        let mut buf = unsigned_varint::encode::u32_buffer();
+        let msg_len = unsigned_varint::encode::u32(self.buffer.len() as u32, &mut buf);
+        io.write_all(msg_len).await?;
+        io.write_all(&self.buffer).await?;
+        Ok(())
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum RequestType {
+    Have,
+    Block,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct BitswapRequest {
+    pub ty: RequestType,
