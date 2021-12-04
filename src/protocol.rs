@@ -224,3 +224,40 @@ pub struct UnknownMessageType(u8);
 #[derive(Debug, Error)]
 #[error("message too large {0}")]
 pub struct MessageTooLarge(usize);
+
+#[cfg(test)]
+pub(crate) mod tests {
+    use super::*;
+    use libipld::multihash::Code;
+    use multihash::MultihashDigest;
+
+    pub fn create_cid(bytes: &[u8]) -> Cid {
+        let digest = Code::Blake3_256.digest(bytes);
+        Cid::new_v1(0x55, digest)
+    }
+
+    #[test]
+    fn test_request_encode_decode() {
+        let requests = [
+            BitswapRequest {
+                ty: RequestType::Have,
+                cid: create_cid(&b"have_request"[..]),
+            },
+            BitswapRequest {
+                ty: RequestType::Block,
+                cid: create_cid(&b"block_request"[..]),
+            },
+        ];
+        let mut buf = Vec::with_capacity(MAX_CID_SIZE + 1);
+        for request in &requests {
+            buf.clear();
+            request.write_to(&mut buf).unwrap();
+            assert_eq!(&BitswapRequest::from_bytes(&buf).unwrap(), request);
+        }
+    }
+
+    #[test]
+    fn test_response_encode_decode() {
+        let responses = [
+            BitswapResponse::Have(true),
+            BitswapResponse::Have(false),
