@@ -165,3 +165,28 @@ impl BitswapRequest {
             1 => RequestType::Block,
             c => return Err(invalid_data(UnknownMessageType(c))),
         };
+        let cid = Cid::try_from(&bytes[1..]).map_err(invalid_data)?;
+        Ok(Self { ty, cid })
+    }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum BitswapResponse {
+    Have(bool),
+    Block(Vec<u8>),
+}
+
+impl BitswapResponse {
+    pub fn write_to<W: Write>(&self, w: &mut W) -> io::Result<()> {
+        match self {
+            BitswapResponse::Have(have) => {
+                if *have {
+                    w.write_all(&[0])?;
+                } else {
+                    w.write_all(&[2])?;
+                }
+            }
+            BitswapResponse::Block(data) => {
+                w.write_all(&[1])?;
+                w.write_all(data)?;
+            }
