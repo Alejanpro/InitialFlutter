@@ -190,3 +190,37 @@ impl BitswapResponse {
                 w.write_all(&[1])?;
                 w.write_all(data)?;
             }
+        };
+        Ok(())
+    }
+
+    pub fn from_bytes(bytes: &[u8]) -> io::Result<Self> {
+        let res = match bytes[0] {
+            0 | 2 => BitswapResponse::Have(bytes[0] == 0),
+            1 => BitswapResponse::Block(bytes[1..].to_vec()),
+            c => return Err(invalid_data(UnknownMessageType(c))),
+        };
+        Ok(res)
+    }
+}
+
+fn invalid_data<E: std::error::Error + Send + Sync + 'static>(e: E) -> io::Error {
+    io::Error::new(io::ErrorKind::InvalidData, e)
+}
+
+fn other<E: std::error::Error + Send + Sync + 'static>(e: E) -> io::Error {
+    io::Error::new(io::ErrorKind::Other, e)
+}
+
+#[cfg(any(target_pointer_width = "64", target_pointer_width = "32"))]
+fn u32_to_usize(n: u32) -> usize {
+    n as usize
+}
+
+#[derive(Debug, Error)]
+#[error("unknown message type {0}")]
+pub struct UnknownMessageType(u8);
+
+#[derive(Debug, Error)]
+#[error("message too large {0}")]
+pub struct MessageTooLarge(usize);
