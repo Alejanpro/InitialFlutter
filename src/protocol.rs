@@ -135,3 +135,33 @@ pub enum RequestType {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BitswapRequest {
     pub ty: RequestType,
+    pub cid: Cid,
+}
+
+impl BitswapRequest {
+    pub fn write_to<W: Write>(&self, w: &mut W) -> io::Result<()> {
+        match self {
+            BitswapRequest {
+                ty: RequestType::Have,
+                cid,
+            } => {
+                w.write_all(&[0])?;
+                cid.write_bytes(&mut *w).map_err(other)?;
+            }
+            BitswapRequest {
+                ty: RequestType::Block,
+                cid,
+            } => {
+                w.write_all(&[1])?;
+                cid.write_bytes(&mut *w).map_err(other)?;
+            }
+        }
+        Ok(())
+    }
+
+    pub fn from_bytes(bytes: &[u8]) -> io::Result<Self> {
+        let ty = match bytes[0] {
+            0 => RequestType::Have,
+            1 => RequestType::Block,
+            c => return Err(invalid_data(UnknownMessageType(c))),
+        };
