@@ -261,3 +261,13 @@ pub(crate) mod tests {
         let responses = [
             BitswapResponse::Have(true),
             BitswapResponse::Have(false),
+            BitswapResponse::Block(b"block_response".to_vec()),
+        ];
+        let mut buf = Vec::with_capacity(13 + 1);
+        for response in &responses {
+            buf.clear();
+            response.write_to(&mut buf).unwrap();
+            assert_eq!(&BitswapResponse::from_bytes(&buf).unwrap(), response);
+        }
+    }
+}
