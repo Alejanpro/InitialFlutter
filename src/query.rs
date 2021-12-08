@@ -3,4 +3,6 @@ use fnv::{FnvHashMap, FnvHashSet};
 use libipld::Cid;
 use libp2p::PeerId;
 use prometheus::HistogramTimer;
-use std::collecti
+use std::collections::VecDeque;
+
+/// Query id
