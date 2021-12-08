@@ -1,4 +1,5 @@
 use crate::stats::{REQUESTS_TOTAL, REQUEST_DURATION_SECONDS};
 use fnv::{FnvHashMap, FnvHashSet};
 use libipld::Cid;
-use libp2p::
+use libp2p::PeerId;
+use prometheus::Histo
