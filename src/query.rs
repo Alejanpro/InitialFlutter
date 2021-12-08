@@ -5,4 +5,5 @@ use libp2p::PeerId;
 use prometheus::HistogramTimer;
 use std::collections::VecDeque;
 
-/// Query id
+/// Query id.
+#[derive(Clone, Copy, Debug, Eq, H
