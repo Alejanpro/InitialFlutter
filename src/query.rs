@@ -7,4 +7,6 @@ use std::collections::VecDeque;
 
 /// Query id.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct 
+pub struct QueryId(u64);
+
+impl std::fmt::D
