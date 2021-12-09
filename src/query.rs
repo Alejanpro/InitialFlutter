@@ -6,4 +6,5 @@ use prometheus::HistogramTimer;
 use std::collections::VecDeque;
 
 /// Query id.
-#[derive(Clone, Copy, Debug, Eq, H
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct 
