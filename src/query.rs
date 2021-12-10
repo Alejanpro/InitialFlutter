@@ -10,4 +10,4 @@ use std::collections::VecDeque;
 pub struct QueryId(u64);
 
 impl std::fmt::Display for QueryId {
-    fn fmt
+    fn fmt(&self, f: &mut std::fmt::Format
