@@ -9,4 +9,5 @@ use std::collections::VecDeque;
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct QueryId(u64);
 
-impl std::fmt::D
+impl std::fmt::Display for QueryId {
+    fn fmt
