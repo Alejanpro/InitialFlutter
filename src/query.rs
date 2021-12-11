@@ -15,4 +15,5 @@ impl std::fmt::Display for QueryId {
     }
 }
 
-/
+/// Request.
+#[derive(Debug, Eq,
