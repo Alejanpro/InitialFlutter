@@ -16,4 +16,5 @@ impl std::fmt::Display for QueryId {
 }
 
 /// Request.
-#[derive(Debug, Eq,
+#[derive(Debug, Eq, PartialEq)]
+pu
