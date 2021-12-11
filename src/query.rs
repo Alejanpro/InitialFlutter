@@ -11,4 +11,8 @@ pub struct QueryId(u64);
 
 impl std::fmt::Display for QueryId {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
- 
+        self.0.fmt(f)
+    }
+}
+
+/
