@@ -18,4 +18,5 @@ impl std::fmt::Display for QueryId {
 /// Request.
 #[derive(Debug, Eq, PartialEq)]
 pub enum Request {
-    /// Ha
+    /// Have query.
+    Have(PeerId, Cid),
