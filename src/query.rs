@@ -21,4 +21,5 @@ pub enum Request {
     /// Have query.
     Have(PeerId, Cid),
     /// Block query.
-    Block(PeerI
+    Block(PeerId, Cid),
+    /// Missing b
