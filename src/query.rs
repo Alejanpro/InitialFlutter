@@ -17,4 +17,5 @@ impl std::fmt::Display for QueryId {
 
 /// Request.
 #[derive(Debug, Eq, PartialEq)]
-pu
+pub enum Request {
+    /// Ha
