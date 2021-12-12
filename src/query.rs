@@ -20,3 +20,5 @@ impl std::fmt::Display for QueryId {
 pub enum Request {
     /// Have query.
     Have(PeerId, Cid),
+    /// Block query.
+    Block(PeerI
