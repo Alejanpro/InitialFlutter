@@ -23,4 +23,7 @@ pub enum Request {
     /// Block query.
     Block(PeerId, Cid),
     /// Missing blocks query.
-    MissingB
+    MissingBlocks(Cid),
+}
+
+impl std::fmt::Di
