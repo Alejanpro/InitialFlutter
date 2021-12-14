@@ -26,4 +26,5 @@ pub enum Request {
     MissingBlocks(Cid),
 }
 
-impl std::fmt::Di
+impl std::fmt::Display for Request {
+    fn fmt(&self,
