@@ -27,4 +27,4 @@ pub enum Request {
 }
 
 impl std::fmt::Display for Request {
-    fn fmt(&self,
+    fn fmt(&self, f: &mut std::fmt::Formatter) -
