@@ -30,4 +30,5 @@ impl std::fmt::Display for Request {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
             Self::Have(_, _) => write!(f, "have"),
-            Self::Block(_, _) => 
+            Self::Block(_, _) => write!(f, "block"),
+            Se
