@@ -29,4 +29,5 @@ pub enum Request {
 impl std::fmt::Display for Request {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Have(_, _) => write!(f, "hav
+            Self::Have(_, _) => write!(f, "have"),
+            Self::Block(_, _) => 
