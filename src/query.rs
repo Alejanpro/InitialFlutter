@@ -31,4 +31,6 @@ impl std::fmt::Display for Request {
         match self {
             Self::Have(_, _) => write!(f, "have"),
             Self::Block(_, _) => write!(f, "block"),
-            Self::MissingBlocks(
+            Self::MissingBlocks(_) => write!(f, "missing-blocks"),
+        }
+  
