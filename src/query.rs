@@ -38,4 +38,6 @@ impl std::fmt::Display for Request {
 
 /// Response.
 #[derive(Debug)]
-pub enum Respon
+pub enum Response {
+    /// Have query.
+    Have(
