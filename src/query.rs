@@ -37,4 +37,5 @@ impl std::fmt::Display for Request {
 }
 
 /// Response.
-#[deri
+#[derive(Debug)]
+pub enum Respon
