@@ -40,4 +40,5 @@ impl std::fmt::Display for Request {
 #[derive(Debug)]
 pub enum Response {
     /// Have query.
-    Have(
+    Have(PeerId, bool),
+    /// Block que
