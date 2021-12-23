@@ -43,4 +43,5 @@ pub enum Response {
     Have(PeerId, bool),
     /// Block query.
     Block(PeerId, bool),
-    
+    /// Missing blocks query.
+    Missi
