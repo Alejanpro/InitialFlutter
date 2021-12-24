@@ -47,4 +47,4 @@ pub enum Response {
     MissingBlocks(Vec<Cid>),
 }
 
-i
+impl std::fmt::Display for Res
