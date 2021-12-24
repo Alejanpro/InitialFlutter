@@ -44,4 +44,7 @@ pub enum Response {
     /// Block query.
     Block(PeerId, bool),
     /// Missing blocks query.
-    Missi
+    MissingBlocks(Vec<Cid>),
+}
+
+i
