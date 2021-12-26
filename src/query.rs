@@ -48,4 +48,5 @@ pub enum Response {
 }
 
 impl std::fmt::Display for Response {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+   
