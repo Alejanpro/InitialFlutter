@@ -50,4 +50,4 @@ pub enum Response {
 impl std::fmt::Display for Response {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self
+            Self::Have(_, have) => write!(f, "h
