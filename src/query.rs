@@ -51,4 +51,4 @@ impl std::fmt::Display for Response {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
             Self::Have(_, have) => write!(f, "have {}", have),
-            Sel
+            Self::Block(_, block) => write!(
