@@ -52,4 +52,9 @@ impl std::fmt::Display for Response {
         match self {
             Self::Have(_, have) => write!(f, "have {}", have),
             Self::Block(_, block) => write!(f, "block {}", block),
-            Self::MissingBlocks(missing) => write!(f, "missing-blocks {}", miss
+            Self::MissingBlocks(missing) => write!(f, "missing-blocks {}", missing.len()),
+        }
+    }
+}
+
+/// Even
