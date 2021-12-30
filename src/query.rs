@@ -57,4 +57,5 @@ impl std::fmt::Display for Response {
     }
 }
 
-/// Even
+/// Event emitted by a query.
+#[de
