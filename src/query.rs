@@ -58,4 +58,5 @@ impl std::fmt::Display for Response {
 }
 
 /// Event emitted by a query.
-#[de
+#[derive(Debug)]
+pub enum Quer
