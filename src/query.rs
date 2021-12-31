@@ -61,4 +61,5 @@ impl std::fmt::Display for Response {
 #[derive(Debug)]
 pub enum QueryEvent {
     /// A subquery to run.
-    Req
+    Request(QueryId, Request),
+    /// A pr
