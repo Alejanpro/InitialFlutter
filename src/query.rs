@@ -59,4 +59,6 @@ impl std::fmt::Display for Response {
 
 /// Event emitted by a query.
 #[derive(Debug)]
-pub enum Quer
+pub enum QueryEvent {
+    /// A subquery to run.
+    Req
