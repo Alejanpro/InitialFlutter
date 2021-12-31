@@ -62,4 +62,5 @@ impl std::fmt::Display for Response {
 pub enum QueryEvent {
     /// A subquery to run.
     Request(QueryId, Request),
-    /// A pr
+    /// A progress event.
+    Progress(Que
