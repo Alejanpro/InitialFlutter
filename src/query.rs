@@ -63,4 +63,6 @@ pub enum QueryEvent {
     /// A subquery to run.
     Request(QueryId, Request),
     /// A progress event.
-    Progress(Que
+    Progress(QueryId, usize),
+    /// Complete event.
+    Compl
