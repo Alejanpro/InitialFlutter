@@ -71,4 +71,4 @@ pub enum QueryEvent {
 #[derive(Debug)]
 pub struct Header {
     /// Query id.
- 
+    pub id: QueryId,
