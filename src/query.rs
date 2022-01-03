@@ -65,4 +65,4 @@ pub enum QueryEvent {
     /// A progress event.
     Progress(QueryId, usize),
     /// Complete event.
-    Compl
+    Complete(QueryId, Result<(), Cid>
