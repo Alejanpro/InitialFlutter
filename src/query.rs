@@ -65,4 +65,8 @@ pub enum QueryEvent {
     /// A progress event.
     Progress(QueryId, usize),
     /// Complete event.
-    Complete(QueryId, Result<(), Cid>
+    Complete(QueryId, Result<(), Cid>),
+}
+
+#[derive(Debug)]
+pub struct
