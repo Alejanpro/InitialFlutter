@@ -73,4 +73,5 @@ pub struct Header {
     /// Query id.
     pub id: QueryId,
     /// Root query id.
-    
+    pub root: QueryId,
+   
