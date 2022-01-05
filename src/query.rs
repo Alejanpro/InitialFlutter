@@ -78,4 +78,6 @@ pub struct Header {
     pub parent: Option<QueryId>,
     /// Cid.
     pub cid: Cid,
-    /// Tim
+    /// Timer.
+    pub timer: HistogramTimer,
+    ///
