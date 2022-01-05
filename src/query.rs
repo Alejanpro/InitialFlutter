@@ -75,4 +75,6 @@ pub struct Header {
     /// Root query id.
     pub root: QueryId,
     /// Parent.
-    pub parent
+    pub parent: Option<QueryId>,
+    /// Cid.
+ 
