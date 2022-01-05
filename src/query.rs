@@ -80,4 +80,5 @@ pub struct Header {
     pub cid: Cid,
     /// Timer.
     pub timer: HistogramTimer,
-    ///
+    /// Type.
+    pub label: &'st
