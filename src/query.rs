@@ -77,4 +77,5 @@ pub struct Header {
     /// Parent.
     pub parent: Option<QueryId>,
     /// Cid.
- 
+    pub cid: Cid,
+    /// Tim
