@@ -81,4 +81,7 @@ pub struct Header {
     /// Timer.
     pub timer: HistogramTimer,
     /// Type.
-    pub label: &'st
+    pub label: &'static str,
+}
+
+impl Drop for He
