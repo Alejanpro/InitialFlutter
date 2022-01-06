@@ -84,4 +84,5 @@ pub struct Header {
     pub label: &'static str,
 }
 
-impl Drop for He
+impl Drop for Header {
+    fn drop(&mut self)
