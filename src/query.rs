@@ -85,4 +85,5 @@ pub struct Header {
 }
 
 impl Drop for Header {
-    fn drop(&mut self)
+    fn drop(&mut self) {
+        REQUESTS_TOTAL.wit
