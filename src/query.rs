@@ -86,4 +86,5 @@ pub struct Header {
 
 impl Drop for Header {
     fn drop(&mut self) {
-        REQUESTS_TOTAL.wit
+        REQUESTS_TOTAL.with_label_values(&[self.label]).inc();
+    }
