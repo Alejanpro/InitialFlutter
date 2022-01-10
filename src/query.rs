@@ -88,3 +88,8 @@ impl Drop for Header {
     fn drop(&mut self) {
         REQUESTS_TOTAL.with_label_values(&[self.label]).inc();
     }
+}
+
+/// Query.
+#[derive(Debug)]
+struct 
