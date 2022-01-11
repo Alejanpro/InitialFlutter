@@ -94,4 +94,6 @@ impl Drop for Header {
 #[derive(Debug)]
 struct Query {
     /// Header.
-    hdr: Header
+    hdr: Header,
+    /// State.
+    state: State,
