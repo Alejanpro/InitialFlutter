@@ -97,3 +97,8 @@ struct Query {
     hdr: Header,
     /// State.
     state: State,
+}
+
+#[derive(Debug)]
+enum State {
+ 
