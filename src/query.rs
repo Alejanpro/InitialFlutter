@@ -101,4 +101,6 @@ struct Query {
 
 #[derive(Debug)]
 enum State {
- 
+    None,
+    Get(GetState),
+  
