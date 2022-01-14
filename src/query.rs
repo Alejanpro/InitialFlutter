@@ -103,4 +103,7 @@ struct Query {
 enum State {
     None,
     Get(GetState),
-  
+    Sync(SyncState),
+}
+
+#[derive(D
