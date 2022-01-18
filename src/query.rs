@@ -106,4 +106,5 @@ enum State {
     Sync(SyncState),
 }
 
-#[derive(D
+#[derive(Debug, Default)]
+struct GetState 
