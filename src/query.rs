@@ -109,4 +109,5 @@ enum State {
 #[derive(Debug, Default)]
 struct GetState {
     have: FnvHashSet<QueryId>,
-  
+    block: Option<QueryId>,
+    
