@@ -110,4 +110,7 @@ enum State {
 struct GetState {
     have: FnvHashSet<QueryId>,
     block: Option<QueryId>,
-    
+    providers: Vec<PeerId>,
+}
+
+#[derive(De
