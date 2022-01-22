@@ -107,4 +107,6 @@ enum State {
 }
 
 #[derive(Debug, Default)]
-struct GetState 
+struct GetState {
+    have: FnvHashSet<QueryId>,
+  
