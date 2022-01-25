@@ -113,4 +113,6 @@ struct GetState {
     providers: Vec<PeerId>,
 }
 
-#[derive(De
+#[derive(Debug, Default)]
+struct SyncState {
+ 
