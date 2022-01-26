@@ -120,4 +120,5 @@ struct SyncState {
     providers: Vec<PeerId>,
 }
 
-enum T
+enum Transition<S, C> {
+    Next(
