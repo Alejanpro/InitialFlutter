@@ -115,4 +115,5 @@ struct GetState {
 
 #[derive(Debug, Default)]
 struct SyncState {
-    missing: FnvHashSet<QueryId>
+    missing: FnvHashSet<QueryId>,
+    children: FnvHashSet<QueryId>,
