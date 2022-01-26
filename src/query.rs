@@ -117,3 +117,7 @@ struct GetState {
 struct SyncState {
     missing: FnvHashSet<QueryId>,
     children: FnvHashSet<QueryId>,
+    providers: Vec<PeerId>,
+}
+
+enum T
