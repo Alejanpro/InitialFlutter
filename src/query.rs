@@ -121,4 +121,8 @@ struct SyncState {
 }
 
 enum Transition<S, C> {
-    Next(
+    Next(S),
+    Complete(C),
+}
+
+#[derive(D
