@@ -126,4 +126,6 @@ enum Transition<S, C> {
 }
 
 #[derive(Default)]
-pub struct Que
+pub struct QueryManager {
+    id_counter: u64,
+    quer
