@@ -125,4 +125,5 @@ enum Transition<S, C> {
     Complete(C),
 }
 
-#[derive(D
+#[derive(Default)]
+pub struct Que
