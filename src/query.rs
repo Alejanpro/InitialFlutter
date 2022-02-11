@@ -129,3 +129,4 @@ enum Transition<S, C> {
 pub struct QueryManager {
     id_counter: u64,
     queries: FnvHashMap<QueryId, Query>,
+    events: VecDeque<QueryEvent>,
