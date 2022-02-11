@@ -128,4 +128,4 @@ enum Transition<S, C> {
 #[derive(Default)]
 pub struct QueryManager {
     id_counter: u64,
-    quer
+    queries: FnvHashMap<QueryId, Query>,
