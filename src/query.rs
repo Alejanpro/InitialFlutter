@@ -136,4 +136,5 @@ impl QueryManager {
     /// Start a new subquery.
     fn start_query(
         &mut self,
-        root: Qu
+        root: QueryId,
+        parent: Option<QueryId>
