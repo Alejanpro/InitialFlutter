@@ -134,4 +134,5 @@ pub struct QueryManager {
 
 impl QueryManager {
     /// Start a new subquery.
-    fn star
+    fn start_query(
+        &mut
