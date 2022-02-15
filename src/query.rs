@@ -137,4 +137,6 @@ impl QueryManager {
     fn start_query(
         &mut self,
         root: QueryId,
-        parent: Option<QueryId>
+        parent: Option<QueryId>,
+        cid: Cid,
+        req
