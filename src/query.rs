@@ -140,4 +140,6 @@ impl QueryManager {
         parent: Option<QueryId>,
         cid: Cid,
         req: Request,
-        label: &'static s
+        label: &'static str,
+    ) -> QueryId {
+        let t
