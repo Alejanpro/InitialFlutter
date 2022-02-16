@@ -139,4 +139,5 @@ impl QueryManager {
         root: QueryId,
         parent: Option<QueryId>,
         cid: Cid,
-        req
+        req: Request,
+        label: &'static s
