@@ -142,4 +142,4 @@ impl QueryManager {
         req: Request,
         label: &'static str,
     ) -> QueryId {
-        let t
+        let timer = REQUEST_DURATION_SECONDS
