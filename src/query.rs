@@ -147,4 +147,6 @@ impl QueryManager {
             .start_timer();
         let id = QueryId(self.id_counter);
         self.id_counter += 1;
-        let query = Query 
+        let query = Query {
+            hdr: Header {
+  
