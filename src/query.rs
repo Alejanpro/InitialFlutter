@@ -149,4 +149,6 @@ impl QueryManager {
         self.id_counter += 1;
         let query = Query {
             hdr: Header {
-  
+                id,
+                root,
+         
