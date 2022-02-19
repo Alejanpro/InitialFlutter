@@ -145,4 +145,4 @@ impl QueryManager {
         let timer = REQUEST_DURATION_SECONDS
             .with_label_values(&[label])
             .start_timer();
-   
+        let id = QueryId(self.id_cou
