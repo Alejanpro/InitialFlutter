@@ -143,4 +143,6 @@ impl QueryManager {
         label: &'static str,
     ) -> QueryId {
         let timer = REQUEST_DURATION_SECONDS
-            .with_label_values(&[label
+            .with_label_values(&[label])
+            .start_timer();
+   
