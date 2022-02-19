@@ -146,4 +146,5 @@ impl QueryManager {
             .with_label_values(&[label])
             .start_timer();
         let id = QueryId(self.id_counter);
-        self.id_counter
+        self.id_counter += 1;
+        let query = Query 
