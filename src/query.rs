@@ -151,4 +151,5 @@ impl QueryManager {
             hdr: Header {
                 id,
                 root,
-         
+                parent,
+       
