@@ -159,4 +159,4 @@ impl QueryManager {
             state: State::None,
         };
         self.queries.insert(id, query);
-   
+        tracing::trace!("{} {} 
