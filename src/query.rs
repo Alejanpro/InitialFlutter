@@ -160,4 +160,4 @@ impl QueryManager {
         };
         self.queries.insert(id, query);
         tracing::trace!("{} {} {}", root, id, req);
-        se
+        self.events.push_back(Qu
