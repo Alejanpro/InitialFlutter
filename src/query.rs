@@ -156,4 +156,6 @@ impl QueryManager {
                 timer,
                 label,
             },
-            state
+            state: State::None,
+        };
+       
