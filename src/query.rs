@@ -155,3 +155,5 @@ impl QueryManager {
                 cid,
                 timer,
                 label,
+            },
+            state
