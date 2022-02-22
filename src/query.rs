@@ -164,4 +164,4 @@ impl QueryManager {
         id
     }
 
-    /// Starts a new 
+    /// Starts a new have query to ask a peer if
