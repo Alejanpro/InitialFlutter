@@ -161,4 +161,7 @@ impl QueryManager {
         self.queries.insert(id, query);
         tracing::trace!("{} {} {}", root, id, req);
         self.events.push_back(QueryEvent::Request(id, req));
-       
+        id
+    }
+
+    /// Starts a new 
