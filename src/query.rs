@@ -164,4 +164,5 @@ impl QueryManager {
         id
     }
 
-    /// Starts a new have query to ask a peer if
+    /// Starts a new have query to ask a peer if it has a block.
+    fn have(&mut self, 
