@@ -169,4 +169,4 @@ impl QueryManager {
         self.start_query(root, Some(parent), cid, Request::Have(peer_id, cid), "have")
     }
 
-    /// Starts a new blo
+    /// Starts a new block query to request a block from
