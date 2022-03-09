@@ -175,4 +175,5 @@ impl QueryManager {
             root,
             Some(parent),
             cid,
-            Reque
+            Request::Block(peer_id, cid),
+            "block
