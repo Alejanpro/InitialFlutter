@@ -173,4 +173,6 @@ impl QueryManager {
     fn block(&mut self, root: QueryId, parent: QueryId, peer_id: PeerId, cid: Cid) -> QueryId {
         self.start_query(
             root,
-            Some(pare
+            Some(parent),
+            cid,
+            Reque
