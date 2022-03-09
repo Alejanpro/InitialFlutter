@@ -172,4 +172,5 @@ impl QueryManager {
     /// Starts a new block query to request a block from a peer.
     fn block(&mut self, root: QueryId, parent: QueryId, peer_id: PeerId, cid: Cid) -> QueryId {
         self.start_query(
-      
+            root,
+            Some(pare
