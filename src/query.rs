@@ -176,4 +176,8 @@ impl QueryManager {
             Some(parent),
             cid,
             Request::Block(peer_id, cid),
-            "block
+            "block",
+        )
+    }
+
+    /
