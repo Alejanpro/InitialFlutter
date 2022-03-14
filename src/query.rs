@@ -180,4 +180,5 @@ impl QueryManager {
         )
     }
 
-    /// Starts a query to determine the missing blocks of a d
+    /// Starts a query to determine the missing blocks of a dag.
+    fn missing_blocks
