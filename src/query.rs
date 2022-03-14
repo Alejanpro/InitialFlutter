@@ -181,4 +181,4 @@ impl QueryManager {
     }
 
     /// Starts a query to determine the missing blocks of a dag.
-    fn missing_blocks
+    fn missing_blocks(&mut self, parent: QueryId,
