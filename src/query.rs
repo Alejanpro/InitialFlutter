@@ -180,4 +180,4 @@ impl QueryManager {
         )
     }
 
-    /// Starts a query to determine 
+    /// Starts a query to determine the missing blocks of a d
