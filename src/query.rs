@@ -180,4 +180,4 @@ impl QueryManager {
         )
     }
 
-    /
+    /// Starts a query to determine 
