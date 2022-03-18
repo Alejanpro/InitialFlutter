@@ -184,4 +184,6 @@ impl QueryManager {
     fn missing_blocks(&mut self, parent: QueryId, cid: Cid) -> QueryId {
         self.start_query(
             parent,
-            Som
+            Some(parent),
+            cid,
+        
