@@ -191,3 +191,4 @@ impl QueryManager {
         )
     }
 
+    /// Starts a query 
