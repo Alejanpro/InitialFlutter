@@ -187,4 +187,7 @@ impl QueryManager {
             Some(parent),
             cid,
             Request::MissingBlocks(cid),
-            "missin
+            "missing-blocks",
+        )
+    }
+
