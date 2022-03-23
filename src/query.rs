@@ -191,4 +191,4 @@ impl QueryManager {
         )
     }
 
-    /// Starts a query 
+    /// Starts a query to locate and retrieve a block. P
