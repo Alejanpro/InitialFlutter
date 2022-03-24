@@ -191,4 +191,4 @@ impl QueryManager {
         )
     }
 
-    /// Starts a query to locate and retrieve a block. P
+    /// Starts a query to locate and retrieve a block. Panics if no providers are su
