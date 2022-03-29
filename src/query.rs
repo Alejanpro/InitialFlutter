@@ -193,4 +193,5 @@ impl QueryManager {
 
     /// Starts a query to locate and retrieve a block. Panics if no providers are supplied.
     pub fn get(
-        &mu
+        &mut self,
+        parent: Option<Q
