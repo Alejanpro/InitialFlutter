@@ -196,4 +196,5 @@ impl QueryManager {
         &mut self,
         parent: Option<QueryId>,
         cid: Cid,
-        providers:
+        providers: impl Iterator<Item = PeerId>,
+    ) 
