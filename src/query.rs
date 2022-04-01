@@ -197,4 +197,5 @@ impl QueryManager {
         parent: Option<QueryId>,
         cid: Cid,
         providers: impl Iterator<Item = PeerId>,
-    ) 
+    ) -> QueryId {
+        let timer = REQUEST_
