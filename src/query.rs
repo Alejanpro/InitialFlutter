@@ -199,4 +199,5 @@ impl QueryManager {
         providers: impl Iterator<Item = PeerId>,
     ) -> QueryId {
         let timer = REQUEST_DURATION_SECONDS
-            .wi
+            .with_label_values(&["get"])
+            .star
