@@ -203,4 +203,5 @@ impl QueryManager {
             .start_timer();
         let id = QueryId(self.id_counter);
         self.id_counter += 1;
-        let root = parent.unw
+        let root = parent.unwrap_or(id);
+        tracing::trac
