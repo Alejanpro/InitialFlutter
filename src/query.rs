@@ -200,4 +200,5 @@ impl QueryManager {
     ) -> QueryId {
         let timer = REQUEST_DURATION_SECONDS
             .with_label_values(&["get"])
-            .star
+            .start_timer();
+        let id = 
