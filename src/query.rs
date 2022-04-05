@@ -201,4 +201,4 @@ impl QueryManager {
         let timer = REQUEST_DURATION_SECONDS
             .with_label_values(&["get"])
             .start_timer();
-        let id = 
+        let id = QueryId(self.id_counte
