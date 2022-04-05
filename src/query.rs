@@ -204,4 +204,5 @@ impl QueryManager {
         let id = QueryId(self.id_counter);
         self.id_counter += 1;
         let root = parent.unwrap_or(id);
-        tracing::trac
+        tracing::trace!("{} {} get", root, id);
+       
