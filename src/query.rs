@@ -202,4 +202,5 @@ impl QueryManager {
             .with_label_values(&["get"])
             .start_timer();
         let id = QueryId(self.id_counter);
-        self.id_counter +=
+        self.id_counter += 1;
+        let root = parent.unw
