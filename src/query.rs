@@ -205,4 +205,5 @@ impl QueryManager {
         self.id_counter += 1;
         let root = parent.unwrap_or(id);
         tracing::trace!("{} {} get", root, id);
-        let mut state = GetState::defaul
+        let mut state = GetState::default();
+        for peer in provid
