@@ -207,4 +207,5 @@ impl QueryManager {
         tracing::trace!("{} {} get", root, id);
         let mut state = GetState::default();
         for peer in providers {
-            if state.block.
+            if state.block.is_none() {
+          
