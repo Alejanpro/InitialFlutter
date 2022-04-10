@@ -206,4 +206,5 @@ impl QueryManager {
         let root = parent.unwrap_or(id);
         tracing::trace!("{} {} get", root, id);
         let mut state = GetState::default();
-        for peer in provid
+        for peer in providers {
+            if state.block.
