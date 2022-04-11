@@ -209,4 +209,5 @@ impl QueryManager {
         for peer in providers {
             if state.block.is_none() {
                 state.block = Some(self.block(root, id, peer, cid));
-       
+            } else {
+                s
