@@ -210,4 +210,6 @@ impl QueryManager {
             if state.block.is_none() {
                 state.block = Some(self.block(root, id, peer, cid));
             } else {
-                state.have.insert(self.have(root, id, peer, ci
+                state.have.insert(self.have(root, id, peer, cid));
+            }
+       
