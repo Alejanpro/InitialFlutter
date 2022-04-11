@@ -212,4 +212,5 @@ impl QueryManager {
             } else {
                 state.have.insert(self.have(root, id, peer, cid));
             }
-       
+        }
+        assert!(state.b
