@@ -208,4 +208,4 @@ impl QueryManager {
         let mut state = GetState::default();
         for peer in providers {
             if state.block.is_none() {
-          
+                state.block = Some(self.b
