@@ -213,4 +213,5 @@ impl QueryManager {
                 state.have.insert(self.have(root, id, peer, cid));
             }
         }
-        assert!(state.b
+        assert!(state.block.is_some());
+        let qu
