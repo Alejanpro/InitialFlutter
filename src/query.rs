@@ -214,4 +214,5 @@ impl QueryManager {
             }
         }
         assert!(state.block.is_some());
-        let qu
+        let query = Query {
+       
