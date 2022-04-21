@@ -216,4 +216,6 @@ impl QueryManager {
         assert!(state.block.is_some());
         let query = Query {
             hdr: Header {
-              
+                id,
+                root,
+   
