@@ -224,4 +224,5 @@ impl QueryManager {
                 label: "get",
             },
             state: State::Get(state),
-   
+        };
+        self.
