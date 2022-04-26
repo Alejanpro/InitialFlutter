@@ -225,4 +225,4 @@ impl QueryManager {
             },
             state: State::Get(state),
         };
-        self.
+        self.queries.insert(id, query)
