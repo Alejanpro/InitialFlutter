@@ -229,4 +229,4 @@ impl QueryManager {
         id
     }
 
-    /// Starts a query to recursively retriev
+    /// Starts a query to recursively retrieve a dag. The missing blo
