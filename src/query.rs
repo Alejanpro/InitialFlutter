@@ -229,4 +229,4 @@ impl QueryManager {
         id
     }
 
-    /// Starts
+    /// Starts a query to recursively retriev
