@@ -229,4 +229,5 @@ impl QueryManager {
         id
     }
 
-    /// Starts a query to recursively retrieve a dag. The missing blo
+    /// Starts a query to recursively retrieve a dag. The missing blocks are the first
+    /// blocks t
