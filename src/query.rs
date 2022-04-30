@@ -233,4 +233,5 @@ impl QueryManager {
     /// blocks that need to be retrieved.
     pub fn sync(
         &mut self,
-        cid: C
+        cid: Cid,
+        providers: Vec<
