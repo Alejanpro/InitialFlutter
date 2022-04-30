@@ -234,4 +234,5 @@ impl QueryManager {
     pub fn sync(
         &mut self,
         cid: Cid,
-        providers: Vec<
+        providers: Vec<PeerId>,
+        missing: impl
