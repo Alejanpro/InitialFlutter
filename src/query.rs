@@ -236,4 +236,5 @@ impl QueryManager {
         cid: Cid,
         providers: Vec<PeerId>,
         missing: impl Iterator<Item = Cid>,
-    ) 
+    ) -> QueryId {
+        let timer 
