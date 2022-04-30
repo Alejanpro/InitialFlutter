@@ -237,4 +237,5 @@ impl QueryManager {
         providers: Vec<PeerId>,
         missing: impl Iterator<Item = Cid>,
     ) -> QueryId {
-        let timer 
+        let timer = REQUEST_DURATION_SECONDS
+  
