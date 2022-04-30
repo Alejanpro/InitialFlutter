@@ -235,4 +235,5 @@ impl QueryManager {
         &mut self,
         cid: Cid,
         providers: Vec<PeerId>,
-        missing: impl
+        missing: impl Iterator<Item = Cid>,
+    ) 
