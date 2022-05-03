@@ -238,4 +238,4 @@ impl QueryManager {
         missing: impl Iterator<Item = Cid>,
     ) -> QueryId {
         let timer = REQUEST_DURATION_SECONDS
-  
+            .with_label_values(&["sync"
