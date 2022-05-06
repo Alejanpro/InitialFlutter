@@ -240,4 +240,5 @@ impl QueryManager {
         let timer = REQUEST_DURATION_SECONDS
             .with_label_values(&["sync"])
             .start_timer();
-        let id = QueryId(
+        let id = QueryId(self.id_counter);
+     
