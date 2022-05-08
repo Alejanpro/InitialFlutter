@@ -247,4 +247,4 @@ impl QueryManager {
         for cid in missing {
             state
                 .missing
-     
+                .insert(self.get(Some(i
