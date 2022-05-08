@@ -247,4 +247,6 @@ impl QueryManager {
         for cid in missing {
             state
                 .missing
-                .insert(self.get(Some(id), cid, providers.iter().cop
+                .insert(self.get(Some(id), cid, providers.iter().copied()));
+        }
+        if stat
