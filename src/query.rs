@@ -243,4 +243,5 @@ impl QueryManager {
         let id = QueryId(self.id_counter);
         self.id_counter += 1;
         tracing::trace!("{} {} sync", id, id);
-        let mut stat
+        let mut state = SyncState::default();
+        fo
