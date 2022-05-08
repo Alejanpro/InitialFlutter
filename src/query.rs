@@ -246,4 +246,5 @@ impl QueryManager {
         let mut state = SyncState::default();
         for cid in missing {
             state
- 
+                .missing
+     
