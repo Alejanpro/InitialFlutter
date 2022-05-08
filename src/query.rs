@@ -244,4 +244,6 @@ impl QueryManager {
         self.id_counter += 1;
         tracing::trace!("{} {} sync", id, id);
         let mut state = SyncState::default();
-        fo
+        for cid in missing {
+            state
+ 
