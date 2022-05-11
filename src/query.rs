@@ -256,4 +256,5 @@ impl QueryManager {
         let query = Query {
             hdr: Header {
                 id,
-          
+                root: id,
+                parent:
