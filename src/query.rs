@@ -251,4 +251,5 @@ impl QueryManager {
         }
         if state.missing.is_empty() {
             state.children.insert(self.missing_blocks(id, cid));
-       
+        }
+        state.providers = pr
