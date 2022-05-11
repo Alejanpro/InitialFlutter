@@ -253,4 +253,5 @@ impl QueryManager {
             state.children.insert(self.missing_blocks(id, cid));
         }
         state.providers = providers;
-        let query =
+        let query = Query {
+            hdr: Header 
