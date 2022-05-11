@@ -257,4 +257,5 @@ impl QueryManager {
             hdr: Header {
                 id,
                 root: id,
-                parent:
+                parent: None,
+                cid,
