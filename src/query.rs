@@ -249,4 +249,5 @@ impl QueryManager {
                 .missing
                 .insert(self.get(Some(id), cid, providers.iter().copied()));
         }
-        if stat
+        if state.missing.is_empty() {
+    
