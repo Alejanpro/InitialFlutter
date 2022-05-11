@@ -250,4 +250,5 @@ impl QueryManager {
                 .insert(self.get(Some(id), cid, providers.iter().copied()));
         }
         if state.missing.is_empty() {
-            state.children.insert(self.mis
+            state.children.insert(self.missing_blocks(id, cid));
+       
