@@ -254,4 +254,6 @@ impl QueryManager {
         }
         state.providers = providers;
         let query = Query {
-            hdr: Header 
+            hdr: Header {
+                id,
+          
