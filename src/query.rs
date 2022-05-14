@@ -259,3 +259,5 @@ impl QueryManager {
                 root: id,
                 parent: None,
                 cid,
+                timer,
+     
