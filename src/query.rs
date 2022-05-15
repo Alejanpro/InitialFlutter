@@ -262,3 +262,4 @@ impl QueryManager {
                 timer,
                 label: "sync",
             },
+            state: State::Syn
