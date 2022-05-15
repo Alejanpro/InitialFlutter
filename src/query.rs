@@ -260,4 +260,5 @@ impl QueryManager {
                 parent: None,
                 cid,
                 timer,
-     
+                label: "sync",
+            },
