@@ -265,4 +265,7 @@ impl QueryManager {
             state: State::Sync(state),
         };
         self.queries.insert(id, query);
-    
+        id
+    }
+
+    /// Cancel
