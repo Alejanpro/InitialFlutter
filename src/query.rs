@@ -268,4 +268,4 @@ impl QueryManager {
         id
     }
 
-    /// Cancel
+    /// Cancels an in progress query.
