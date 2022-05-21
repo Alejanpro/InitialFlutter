@@ -269,3 +269,4 @@ impl QueryManager {
     }
 
     /// Cancels an in progress query.
+    pub fn cancel(&mut self,
