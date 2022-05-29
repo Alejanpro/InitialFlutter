@@ -270,4 +270,6 @@ impl QueryManager {
 
     /// Cancels an in progress query.
     pub fn cancel(&mut self, root: QueryId) -> bool {
-        let query = if let Some(query) = self.queries.remove(&
+        let query = if let Some(query) = self.queries.remove(&root) {
+            query
+       
