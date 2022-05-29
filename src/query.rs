@@ -272,4 +272,5 @@ impl QueryManager {
     pub fn cancel(&mut self, root: QueryId) -> bool {
         let query = if let Some(query) = self.queries.remove(&root) {
             query
-       
+        } else {
+            return false;
