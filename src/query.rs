@@ -275,4 +275,5 @@ impl QueryManager {
         } else {
             return false;
         };
-        let queries
+        let queries = &self.queries;
+      
