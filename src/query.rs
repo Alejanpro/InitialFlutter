@@ -274,3 +274,5 @@ impl QueryManager {
             query
         } else {
             return false;
+        };
+        let queries
