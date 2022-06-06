@@ -277,4 +277,5 @@ impl QueryManager {
         };
         let queries = &self.queries;
         self.events.retain(|event| {
-            let (id, req) = match event
+            let (id, req) = match event {
+                QueryEvent::Req
