@@ -276,4 +276,5 @@ impl QueryManager {
             return false;
         };
         let queries = &self.queries;
-      
+        self.events.retain(|event| {
+  
