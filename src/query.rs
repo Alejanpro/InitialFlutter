@@ -279,4 +279,4 @@ impl QueryManager {
         self.events.retain(|event| {
             let (id, req) = match event {
                 QueryEvent::Request(id, req) => (id, req),
-                QueryEvent::Progress
+                QueryEvent::Progress(id, _) => return *id != 
