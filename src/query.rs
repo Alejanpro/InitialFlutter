@@ -280,4 +280,6 @@ impl QueryManager {
             let (id, req) = match event {
                 QueryEvent::Request(id, req) => (id, req),
                 QueryEvent::Progress(id, _) => return *id != root,
-                QueryEvent::Complete(_, _) => retur
+                QueryEvent::Complete(_, _) => return true,
+            };
+    
