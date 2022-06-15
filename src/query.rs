@@ -282,4 +282,5 @@ impl QueryManager {
                 QueryEvent::Progress(id, _) => return *id != root,
                 QueryEvent::Complete(_, _) => return true,
             };
-            if queries.get(id).map(|q
+            if queries.get(id).map(|q| q.hdr.root) != Some(root) {
+ 
