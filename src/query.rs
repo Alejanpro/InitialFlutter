@@ -288,4 +288,5 @@ impl QueryManager {
             tracing::trace!("{} {} {} cancel", root, id, req);
             false
         });
-        match qu
+        match query.state {
+            State::Get(_) =
