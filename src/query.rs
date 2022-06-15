@@ -283,4 +283,4 @@ impl QueryManager {
                 QueryEvent::Complete(_, _) => return true,
             };
             if queries.get(id).map(|q| q.hdr.root) != Some(root) {
- 
+                return true
