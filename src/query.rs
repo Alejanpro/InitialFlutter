@@ -285,4 +285,6 @@ impl QueryManager {
             if queries.get(id).map(|q| q.hdr.root) != Some(root) {
                 return true;
             }
-            tracing::trace!("{} {} {} cancel", root,
+            tracing::trace!("{} {} {} cancel", root, id, req);
+            false
+    
