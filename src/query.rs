@@ -287,4 +287,5 @@ impl QueryManager {
             }
             tracing::trace!("{} {} {} cancel", root, id, req);
             false
-    
+        });
+        match qu
