@@ -293,4 +293,5 @@ impl QueryManager {
                 tracing::trace!("{} {} get cancel", root, root);
                 true
             }
-            State::Sync(s
+            State::Sync(state) => {
+                for 
