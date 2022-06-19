@@ -292,4 +292,5 @@ impl QueryManager {
             State::Get(_) => {
                 tracing::trace!("{} {} get cancel", root, root);
                 true
-  
+            }
+            State::Sync(s
