@@ -294,4 +294,5 @@ impl QueryManager {
                 true
             }
             State::Sync(state) => {
-                for 
+                for id in state.missing {
+               
