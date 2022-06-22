@@ -296,4 +296,4 @@ impl QueryManager {
             State::Sync(state) => {
                 for id in state.missing {
                     tracing::trace!("{} {} get cancel", root, id);
-             
+                    self.queries.remov
