@@ -298,4 +298,4 @@ impl QueryManager {
                     tracing::trace!("{} {} get cancel", root, id);
                     self.queries.remove(&id);
                 }
-        
+                tracing::trace!("{} {} 
