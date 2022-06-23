@@ -300,4 +300,6 @@ impl QueryManager {
                 }
                 tracing::trace!("{} {} sync cancel", root, root);
                 true
-           
+            }
+            State::None => {
+  
