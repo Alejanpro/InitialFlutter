@@ -299,4 +299,5 @@ impl QueryManager {
                     self.queries.remove(&id);
                 }
                 tracing::trace!("{} {} sync cancel", root, root);
-   
+                true
+           
