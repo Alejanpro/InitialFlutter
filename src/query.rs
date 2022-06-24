@@ -302,4 +302,4 @@ impl QueryManager {
                 true
             }
             State::None => {
-  
+                self.q
