@@ -305,4 +305,7 @@ impl QueryManager {
                 self.queries.insert(root, query);
                 false
             }
-   
+        }
+    }
+
+    /// Advances 
