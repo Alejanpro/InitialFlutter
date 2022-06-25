@@ -303,4 +303,6 @@ impl QueryManager {
             }
             State::None => {
                 self.queries.insert(root, query);
-                fa
+                false
+            }
+   
