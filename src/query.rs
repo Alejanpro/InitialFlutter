@@ -308,4 +308,4 @@ impl QueryManager {
         }
     }
 
-    /// Advances 
+    /// Advances a get query state machine using a
