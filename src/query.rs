@@ -308,4 +308,5 @@ impl QueryManager {
         }
     }
 
-    /// Advances a get query state machine using a
+    /// Advances a get query state machine using a transition function.
+    fn g
