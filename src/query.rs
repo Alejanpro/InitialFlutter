@@ -309,4 +309,4 @@ impl QueryManager {
     }
 
     /// Advances a get query state machine using a transition function.
-    fn g
+    fn get_query<F>(&mut self, id: 
