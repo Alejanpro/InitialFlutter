@@ -311,4 +311,6 @@ impl QueryManager {
     /// Advances a get query state machine using a transition function.
     fn get_query<F>(&mut self, id: QueryId, f: F)
     where
-        F: FnOnce(&mut Self, &Header, GetState) -> Transition<GetState, Re
+        F: FnOnce(&mut Self, &Header, GetState) -> Transition<GetState, Result<(), Cid>>,
+    {
+ 
