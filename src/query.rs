@@ -314,4 +314,4 @@ impl QueryManager {
         F: FnOnce(&mut Self, &Header, GetState) -> Transition<GetState, Result<(), Cid>>,
     {
         if let Some(mut parent) = self.queries.remove(&id) {
-            let state = if let State::G
+            let state = if let State::Get(state) = parent.state 
