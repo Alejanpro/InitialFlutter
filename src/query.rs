@@ -316,4 +316,5 @@ impl QueryManager {
         if let Some(mut parent) = self.queries.remove(&id) {
             let state = if let State::Get(state) = parent.state {
                 state
-          
+            } else {
+                ret
