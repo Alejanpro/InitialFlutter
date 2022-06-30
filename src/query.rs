@@ -317,4 +317,6 @@ impl QueryManager {
             let state = if let State::Get(state) = parent.state {
                 state
             } else {
-                ret
+                return;
+            };
+            match 
