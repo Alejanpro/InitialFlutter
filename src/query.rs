@@ -319,4 +319,4 @@ impl QueryManager {
             } else {
                 return;
             };
-            match 
+            match f(self, &parent.hdr, state) {
