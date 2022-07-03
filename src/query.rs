@@ -322,3 +322,4 @@ impl QueryManager {
             match f(self, &parent.hdr, state) {
                 Transition::Next(state) => {
                     parent.state = State::Get(state);
+                    self.queries.
