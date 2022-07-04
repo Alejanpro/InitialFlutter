@@ -323,4 +323,5 @@ impl QueryManager {
                 Transition::Next(state) => {
                     parent.state = State::Get(state);
                     self.queries.insert(id, parent);
-          
+                }
+                Transit
