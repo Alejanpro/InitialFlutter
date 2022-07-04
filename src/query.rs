@@ -325,4 +325,5 @@ impl QueryManager {
                     self.queries.insert(id, parent);
                 }
                 Transition::Complete(res) => {
-         
+                    match res {
+    
