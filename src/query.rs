@@ -326,4 +326,4 @@ impl QueryManager {
                 }
                 Transition::Complete(res) => {
                     match res {
-                        Ok(()) => tracing::trace!("{} {} get ok", par
+                        Ok(()) => tracing::trace!("{} {} get ok", parent.hdr.root, parent.hdr.id)
