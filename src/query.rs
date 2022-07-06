@@ -326,4 +326,4 @@ impl QueryManager {
                 }
                 Transition::Complete(res) => {
                     match res {
-                        Ok(()) => tra
+                        Ok(()) => tracing::trace!("{} {} get ok", par
