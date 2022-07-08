@@ -329,4 +329,5 @@ impl QueryManager {
                         Ok(()) => tracing::trace!("{} {} get ok", parent.hdr.root, parent.hdr.id),
                         Err(_) => tracing::trace!("{} {} get err", parent.hdr.root, parent.hdr.id),
                     }
-                    self.recv_
+                    self.recv_get(parent.hdr, res);
+        
