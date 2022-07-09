@@ -332,4 +332,7 @@ impl QueryManager {
                     self.recv_get(parent.hdr, res);
                 }
             }
-    
+        }
+    }
+
+    /// Advances
