@@ -336,4 +336,4 @@ impl QueryManager {
     }
 
     /// Advances a sync query state machine using a transition function.
-    fn sync_que
+    fn sync_query<F>(&mut self, id: QueryId, f: F)
