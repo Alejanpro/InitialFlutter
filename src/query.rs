@@ -335,4 +335,5 @@ impl QueryManager {
         }
     }
 
-    /// Advances a sync query state machine using a transiti
+    /// Advances a sync query state machine using a transition function.
+    fn sync_que
