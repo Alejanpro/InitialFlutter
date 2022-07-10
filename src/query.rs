@@ -335,4 +335,4 @@ impl QueryManager {
         }
     }
 
-    /// Advances
+    /// Advances a sync query state machine using a transiti
