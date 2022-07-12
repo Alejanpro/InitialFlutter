@@ -339,4 +339,5 @@ impl QueryManager {
     fn sync_query<F>(&mut self, id: QueryId, f: F)
     where
         F: FnOnce(&mut Self, &Header, SyncState) -> Transition<SyncState, Result<(), Cid>>,
-    
+    {
+        if let Some(mut
