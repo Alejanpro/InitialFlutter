@@ -341,4 +341,5 @@ impl QueryManager {
         F: FnOnce(&mut Self, &Header, SyncState) -> Transition<SyncState, Result<(), Cid>>,
     {
         if let Some(mut parent) = self.queries.remove(&id) {
-            let state = if let State::Sync(state) = 
+            let state = if let State::Sync(state) = parent.state {
+           
