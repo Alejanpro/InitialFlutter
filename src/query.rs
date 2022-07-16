@@ -344,4 +344,6 @@ impl QueryManager {
             let state = if let State::Sync(state) = parent.state {
                 state
             } else {
-           
+                return;
+            };
+  
