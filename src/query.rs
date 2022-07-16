@@ -346,4 +346,4 @@ impl QueryManager {
             } else {
                 return;
             };
-  
+            match f(
