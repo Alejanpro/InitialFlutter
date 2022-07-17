@@ -347,4 +347,5 @@ impl QueryManager {
                 return;
             };
             match f(self, &parent.hdr, state) {
-                Transition::Next(state) =>
+                Transition::Next(state) => {
+                    parent.state
