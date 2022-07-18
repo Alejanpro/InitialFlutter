@@ -349,4 +349,5 @@ impl QueryManager {
             match f(self, &parent.hdr, state) {
                 Transition::Next(state) => {
                     parent.state = State::Sync(state);
-                    self.queries
+                    self.queries.insert(id, parent);
+                }
