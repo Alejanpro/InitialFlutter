@@ -351,3 +351,4 @@ impl QueryManager {
                     parent.state = State::Sync(state);
                     self.queries.insert(id, parent);
                 }
+                Transition::Complete
