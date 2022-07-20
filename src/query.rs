@@ -352,4 +352,4 @@ impl QueryManager {
                     self.queries.insert(id, parent);
                 }
                 Transition::Complete(res) => {
-               
+                    if res.is_ok() {
