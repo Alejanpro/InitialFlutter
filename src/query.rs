@@ -353,4 +353,4 @@ impl QueryManager {
                 }
                 Transition::Complete(res) => {
                     if res.is_ok() {
-                        traci
+                        tracing::trace!("{} {} sync
