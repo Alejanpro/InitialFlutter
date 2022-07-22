@@ -353,4 +353,4 @@ impl QueryManager {
                 }
                 Transition::Complete(res) => {
                     if res.is_ok() {
-                        tracing::trace!("{} {} sync
+                        tracing::trace!("{} {} sync ok", parent.hdr.root, parent.h
