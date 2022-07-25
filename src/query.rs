@@ -355,4 +355,5 @@ impl QueryManager {
                     if res.is_ok() {
                         tracing::trace!("{} {} sync ok", parent.hdr.root, parent.hdr.id);
                     } else {
-                        tracing::trace!("{} {} sync err", parent.
+                        tracing::trace!("{} {} sync err", parent.hdr.root, parent.hdr.id);
+  
