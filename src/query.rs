@@ -356,4 +356,5 @@ impl QueryManager {
                         tracing::trace!("{} {} sync ok", parent.hdr.root, parent.hdr.id);
                     } else {
                         tracing::trace!("{} {} sync err", parent.hdr.root, parent.hdr.id);
-  
+                    }
+                 
