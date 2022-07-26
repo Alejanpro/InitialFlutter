@@ -357,4 +357,5 @@ impl QueryManager {
                     } else {
                         tracing::trace!("{} {} sync err", parent.hdr.root, parent.hdr.id);
                     }
-                    self.recv_sync(parent.hdr, r
+                    self.recv_sync(parent.hdr, res);
+                }
