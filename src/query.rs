@@ -363,4 +363,6 @@ impl QueryManager {
         }
     }
 
-    /// Processes the respons
+    /// Processes the response of a have query.
+    ///
+ 
