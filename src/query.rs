@@ -361,4 +361,6 @@ impl QueryManager {
                 }
             }
         }
- 
+    }
+
+    /// Processes the respons
