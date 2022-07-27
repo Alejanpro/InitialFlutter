@@ -365,4 +365,4 @@ impl QueryManager {
 
     /// Processes the response of a have query.
     ///
- 
+    /// Marks the in progress query as co
