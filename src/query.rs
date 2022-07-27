@@ -359,3 +359,6 @@ impl QueryManager {
                     }
                     self.recv_sync(parent.hdr, res);
                 }
+            }
+        }
+ 
