@@ -366,4 +366,4 @@ impl QueryManager {
     /// Processes the response of a have query.
     ///
     /// Marks the in progress query as complete and updates the set of peers that have
-    /// a block. If there isn't an in progress block 
+    /// a block. If there isn't an in progress block query a new block query will be
