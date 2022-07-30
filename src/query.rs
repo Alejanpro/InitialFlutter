@@ -369,4 +369,5 @@ impl QueryManager {
     /// a block. If there isn't an in progress block query a new block query will be
     /// started. If no block query can be started either a provider query is started or
     /// the get query is marked as complete with a block-not-found error.
-    fn recv_have(&mut self, query: Header, peer_id: PeerId
+    fn recv_have(&mut self, query: Header, peer_id: PeerId, have: bool) {
+        self.get_query
