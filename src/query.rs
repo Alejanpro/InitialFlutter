@@ -368,4 +368,4 @@ impl QueryManager {
     /// Marks the in progress query as complete and updates the set of peers that have
     /// a block. If there isn't an in progress block query a new block query will be
     /// started. If no block query can be started either a provider query is started or
-    /// the get query is marked as 
+    /// the get query is marked as complete with a block-not
