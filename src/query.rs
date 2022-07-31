@@ -370,4 +370,4 @@ impl QueryManager {
     /// started. If no block query can be started either a provider query is started or
     /// the get query is marked as complete with a block-not-found error.
     fn recv_have(&mut self, query: Header, peer_id: PeerId, have: bool) {
-        self.get_query
+        self.get_query(query.parent.unwrap(), |mgr, parent, m
