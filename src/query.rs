@@ -372,4 +372,4 @@ impl QueryManager {
     fn recv_have(&mut self, query: Header, peer_id: PeerId, have: bool) {
         self.get_query(query.parent.unwrap(), |mgr, parent, mut state| {
             state.have.remove(&query.id);
-   
+            if state.block == Some(query.id) {
