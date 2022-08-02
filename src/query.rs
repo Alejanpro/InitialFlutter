@@ -375,4 +375,5 @@ impl QueryManager {
             if state.block == Some(query.id) {
                 state.block = None;
             }
-            if
+            if have {
+                state.p
