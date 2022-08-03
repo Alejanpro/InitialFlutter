@@ -376,4 +376,5 @@ impl QueryManager {
                 state.block = None;
             }
             if have {
-                state.p
+                state.providers.push(peer_id);
+            }
