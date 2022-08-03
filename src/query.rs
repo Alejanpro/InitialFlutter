@@ -378,3 +378,4 @@ impl QueryManager {
             if have {
                 state.providers.push(peer_id);
             }
+            if state.block.is_n
