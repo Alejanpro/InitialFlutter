@@ -378,4 +378,4 @@ impl QueryManager {
             if have {
                 state.providers.push(peer_id);
             }
-            if state.block.is_n
+            if state.block.is_none() && !state.providers.is_empt
