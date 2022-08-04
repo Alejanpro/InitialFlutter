@@ -379,4 +379,5 @@ impl QueryManager {
                 state.providers.push(peer_id);
             }
             if state.block.is_none() && !state.providers.is_empty() {
-                st
+                state.block = Some(mgr.block(
+       
