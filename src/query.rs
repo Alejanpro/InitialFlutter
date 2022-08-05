@@ -381,4 +381,5 @@ impl QueryManager {
             if state.block.is_none() && !state.providers.is_empty() {
                 state.block = Some(mgr.block(
                     parent.root,
+                    parent.id,
                 
