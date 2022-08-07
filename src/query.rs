@@ -386,4 +386,4 @@ impl QueryManager {
                     query.cid,
                 ));
             }
-          
+            if state.have.is_empty() && st
