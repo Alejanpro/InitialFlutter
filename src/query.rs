@@ -384,4 +384,6 @@ impl QueryManager {
                     parent.id,
                     state.providers.pop().unwrap(),
                     query.cid,
-               
+                ));
+            }
+          
