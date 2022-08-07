@@ -383,4 +383,5 @@ impl QueryManager {
                     parent.root,
                     parent.id,
                     state.providers.pop().unwrap(),
-                
+                    query.cid,
+               
