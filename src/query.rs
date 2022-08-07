@@ -382,4 +382,5 @@ impl QueryManager {
                 state.block = Some(mgr.block(
                     parent.root,
                     parent.id,
-                    state.providers.pop().unwra
+                    state.providers.pop().unwrap(),
+                
