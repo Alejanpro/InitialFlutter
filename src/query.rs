@@ -386,4 +386,5 @@ impl QueryManager {
                     query.cid,
                 ));
             }
-            if state.have.is_empty() && state.block.is_none() && state.pr
+            if state.have.is_empty() && state.block.is_none() && state.providers.is_empty() {
+             
