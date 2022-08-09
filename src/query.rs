@@ -388,4 +388,5 @@ impl QueryManager {
             }
             if state.have.is_empty() && state.block.is_none() && state.providers.is_empty() {
                 if state.providers.is_empty() {
-                    return Transition::Complete(Err
+                    return Transition::Complete(Err(query.cid));
+                }
