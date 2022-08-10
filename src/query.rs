@@ -390,4 +390,4 @@ impl QueryManager {
                 if state.providers.is_empty() {
                     return Transition::Complete(Err(query.cid));
                 } else {
-                  
+                    return Transition::Complete(Ok((
