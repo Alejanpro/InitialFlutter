@@ -392,4 +392,6 @@ impl QueryManager {
                 } else {
                     return Transition::Complete(Ok(()));
                 }
-           
+            }
+            Transition::Next(state)
+    
