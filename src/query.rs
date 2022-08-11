@@ -394,4 +394,7 @@ impl QueryManager {
                 }
             }
             Transition::Next(state)
-    
+        });
+    }
+
+    /// Processes the 
