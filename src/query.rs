@@ -397,4 +397,4 @@ impl QueryManager {
         });
     }
 
-    /// Processes the 
+    /// Processes the response of a block query.
