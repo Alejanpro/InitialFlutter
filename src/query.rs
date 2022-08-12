@@ -398,3 +398,5 @@ impl QueryManager {
     }
 
     /// Processes the response of a block query.
+    ///
+    /// Either completes the 
