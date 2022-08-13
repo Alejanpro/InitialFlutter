@@ -399,4 +399,5 @@ impl QueryManager {
 
     /// Processes the response of a block query.
     ///
-    /// Either completes the get query or processes it like a have 
+    /// Either completes the get query or processes it like a have query response.
+    fn re
