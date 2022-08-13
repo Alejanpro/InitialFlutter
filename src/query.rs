@@ -400,4 +400,5 @@ impl QueryManager {
     /// Processes the response of a block query.
     ///
     /// Either completes the get query or processes it like a have query response.
-    fn recv_block(&mut self, query: Header
+    fn recv_block(&mut self, query: Header, peer_id: PeerId, block: bool) {
+  
