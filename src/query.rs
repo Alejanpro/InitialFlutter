@@ -404,4 +404,6 @@ impl QueryManager {
         if block {
             self.get_query(query.parent.unwrap(), |_mgr, _parent, mut state| {
                 state.providers.push(peer_id);
-                Transition
+                Transition::Complete(Ok(()))
+            });
+ 
