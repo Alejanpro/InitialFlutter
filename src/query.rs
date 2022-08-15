@@ -403,4 +403,5 @@ impl QueryManager {
     fn recv_block(&mut self, query: Header, peer_id: PeerId, block: bool) {
         if block {
             self.get_query(query.parent.unwrap(), |_mgr, _parent, mut state| {
-                state.providers.push(p
+                state.providers.push(peer_id);
+                Transition
