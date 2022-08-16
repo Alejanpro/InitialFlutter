@@ -406,4 +406,5 @@ impl QueryManager {
                 state.providers.push(peer_id);
                 Transition::Complete(Ok(()))
             });
- 
+        } else {
+            
