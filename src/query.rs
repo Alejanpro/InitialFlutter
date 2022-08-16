@@ -407,4 +407,8 @@ impl QueryManager {
                 Transition::Complete(Ok(()))
             });
         } else {
-            self.recv_have(query, peer_id, 
+            self.recv_have(query, peer_id, block);
+        }
+    }
+
+    /// Pr
