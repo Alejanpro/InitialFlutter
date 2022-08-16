@@ -407,4 +407,4 @@ impl QueryManager {
                 Transition::Complete(Ok(()))
             });
         } else {
-            
+            self.recv_have(query, peer_id, 
