@@ -413,4 +413,4 @@ impl QueryManager {
 
     /// Processes the response of a missing blocks query.
     ///
-    /// Starts a get query for each missing block
+    /// Starts a get query for each missing block. If there are no in progress qu
