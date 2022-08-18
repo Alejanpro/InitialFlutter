@@ -414,4 +414,5 @@ impl QueryManager {
     /// Processes the response of a missing blocks query.
     ///
     /// Starts a get query for each missing block. If there are no in progress queries
-    /// the sync query is marked a
+    /// the sync query is marked as complete.
+    fn recv_m
