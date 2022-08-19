@@ -415,4 +415,4 @@ impl QueryManager {
     ///
     /// Starts a get query for each missing block. If there are no in progress queries
     /// the sync query is marked as complete.
-    fn recv_missing_blocks(&mut se
+    fn recv_missing_blocks(&mut self, query: Header, missing: V
