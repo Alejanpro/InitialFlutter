@@ -417,4 +417,5 @@ impl QueryManager {
     /// the sync query is marked as complete.
     fn recv_missing_blocks(&mut self, query: Header, missing: Vec<Cid>) {
         let mut num_missing = 0;
-        let num_missing_ref
+        let num_missing_ref = &mut num_missing;
+       
