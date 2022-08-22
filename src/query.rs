@@ -418,4 +418,5 @@ impl QueryManager {
     fn recv_missing_blocks(&mut self, query: Header, missing: Vec<Cid>) {
         let mut num_missing = 0;
         let num_missing_ref = &mut num_missing;
-        self.sync_query(query.parent.unwrap(), |mgr, parent, mut stat
+        self.sync_query(query.parent.unwrap(), |mgr, parent, mut state| {
+            state.children.remove
