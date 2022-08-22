@@ -419,4 +419,5 @@ impl QueryManager {
         let mut num_missing = 0;
         let num_missing_ref = &mut num_missing;
         self.sync_query(query.parent.unwrap(), |mgr, parent, mut state| {
-            state.children.remove
+            state.children.remove(&query.id);
+            for cid in mi
