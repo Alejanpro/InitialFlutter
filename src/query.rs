@@ -421,4 +421,5 @@ impl QueryManager {
         self.sync_query(query.parent.unwrap(), |mgr, parent, mut state| {
             state.children.remove(&query.id);
             for cid in missing {
-                state.missing
+                state.missing.insert(mgr.get(
+                    So
