@@ -423,4 +423,5 @@ impl QueryManager {
             for cid in missing {
                 state.missing.insert(mgr.get(
                     Some(parent.root),
-                    c
+                    cid,
+                    state
