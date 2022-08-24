@@ -422,4 +422,5 @@ impl QueryManager {
             state.children.remove(&query.id);
             for cid in missing {
                 state.missing.insert(mgr.get(
-                    So
+                    Some(parent.root),
+                    c
