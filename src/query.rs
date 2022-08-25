@@ -427,4 +427,5 @@ impl QueryManager {
                     state.providers.iter().copied(),
                 ));
             }
-            *
+            *num_missing_ref = state.missing.len();
+   
