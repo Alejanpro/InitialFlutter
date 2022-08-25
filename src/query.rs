@@ -424,4 +424,5 @@ impl QueryManager {
                 state.missing.insert(mgr.get(
                     Some(parent.root),
                     cid,
-                    state
+                    state.providers.iter().copied(),
+           
