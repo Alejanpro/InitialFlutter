@@ -425,4 +425,6 @@ impl QueryManager {
                     Some(parent.root),
                     cid,
                     state.providers.iter().copied(),
-           
+                ));
+            }
+            *
