@@ -428,4 +428,5 @@ impl QueryManager {
                 ));
             }
             *num_missing_ref = state.missing.len();
-            if state.missing.is_empty() && state.children.is_emp
+            if state.missing.is_empty() && state.children.is_empty() {
+                Transit
