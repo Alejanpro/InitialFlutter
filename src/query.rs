@@ -434,4 +434,5 @@ impl QueryManager {
                 Transition::Next(state)
             }
         });
-        if n
+        if num_missing != 0 {
+            se
