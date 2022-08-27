@@ -431,4 +431,5 @@ impl QueryManager {
             if state.missing.is_empty() && state.children.is_empty() {
                 Transition::Complete(Ok(()))
             } else {
-                Transi
+                Transition::Next(state)
+     
