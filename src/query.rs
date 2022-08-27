@@ -432,4 +432,6 @@ impl QueryManager {
                 Transition::Complete(Ok(()))
             } else {
                 Transition::Next(state)
-     
+            }
+        });
+        if n
