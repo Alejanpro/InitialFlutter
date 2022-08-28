@@ -436,4 +436,4 @@ impl QueryManager {
         });
         if num_missing != 0 {
             self.events
-                .push_back(
+                .push_back(QueryEvent::Progress(query.root
