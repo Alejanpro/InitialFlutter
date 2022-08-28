@@ -435,4 +435,5 @@ impl QueryManager {
             }
         });
         if num_missing != 0 {
-            se
+            self.events
+                .push_back(
