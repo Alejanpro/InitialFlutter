@@ -440,4 +440,6 @@ impl QueryManager {
         }
     }
 
-    /// Processes the response of a ge
+    /// Processes the response of a get query.
+    ///
+    /// If it is par
