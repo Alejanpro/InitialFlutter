@@ -440,4 +440,4 @@ impl QueryManager {
         }
     }
 
-    
+    /// Processes the response of a ge
