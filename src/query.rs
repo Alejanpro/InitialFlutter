@@ -442,4 +442,4 @@ impl QueryManager {
 
     /// Processes the response of a get query.
     ///
-    /// If it is part of a sync query a new missing blocks q
+    /// If it is part of a sync query a new missing blocks query is started. Otherwis
