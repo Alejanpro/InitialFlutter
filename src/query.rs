@@ -445,4 +445,4 @@ impl QueryManager {
     /// If it is part of a sync query a new missing blocks query is started. Otherwise
     /// the get query emits a `complete` event.
     fn recv_get(&mut self, query: Header, res: Result<(), Cid>) {
-   
+        if let Some(id) =
