@@ -446,4 +446,4 @@ impl QueryManager {
     /// the get query emits a `complete` event.
     fn recv_get(&mut self, query: Header, res: Result<(), Cid>) {
         if let Some(id) = query.parent {
-            sel
+            self.sync_query(id, |mgr, paren
