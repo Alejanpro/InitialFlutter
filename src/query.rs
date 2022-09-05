@@ -447,4 +447,5 @@ impl QueryManager {
     fn recv_get(&mut self, query: Header, res: Result<(), Cid>) {
         if let Some(id) = query.parent {
             self.sync_query(id, |mgr, parent, mut state| {
-                state.missing.remove(&quer
+                state.missing.remove(&query.id);
+                if res.is
