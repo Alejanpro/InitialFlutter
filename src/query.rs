@@ -448,4 +448,5 @@ impl QueryManager {
         if let Some(id) = query.parent {
             self.sync_query(id, |mgr, parent, mut state| {
                 state.missing.remove(&query.id);
-                if res.is
+                if res.is_err() {
+                    Transit
