@@ -451,4 +451,5 @@ impl QueryManager {
                 if res.is_err() {
                     Transition::Complete(res)
                 } else {
-             
+                    state
+                    
