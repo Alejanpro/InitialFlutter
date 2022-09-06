@@ -450,4 +450,5 @@ impl QueryManager {
                 state.missing.remove(&query.id);
                 if res.is_err() {
                     Transition::Complete(res)
-       
+                } else {
+             
