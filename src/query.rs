@@ -453,4 +453,5 @@ impl QueryManager {
                 } else {
                     state
                         .children
-                        .insert(mgr.missing_blocks(parent.root, que
+                        .insert(mgr.missing_blocks(parent.root, query.cid));
+                    Tr
