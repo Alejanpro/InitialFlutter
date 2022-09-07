@@ -453,4 +453,4 @@ impl QueryManager {
                 } else {
                     state
                         .children
-                        
+                        .insert(mgr.missing_blocks(parent.root, que
