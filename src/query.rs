@@ -452,4 +452,5 @@ impl QueryManager {
                     Transition::Complete(res)
                 } else {
                     state
-                    
+                        .children
+                        
