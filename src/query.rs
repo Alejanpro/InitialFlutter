@@ -455,3 +455,5 @@ impl QueryManager {
                         .children
                         .insert(mgr.missing_blocks(parent.root, query.cid));
                     Transition::Next(state)
+                }
+            }
