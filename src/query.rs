@@ -458,4 +458,4 @@ impl QueryManager {
                 }
             });
         } else {
-            
+            self.events.push_back(QueryEvent
