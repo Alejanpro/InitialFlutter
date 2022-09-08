@@ -456,4 +456,6 @@ impl QueryManager {
                         .insert(mgr.missing_blocks(parent.root, query.cid));
                     Transition::Next(state)
                 }
-            }
+            });
+        } else {
+            
