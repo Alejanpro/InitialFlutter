@@ -462,4 +462,4 @@ impl QueryManager {
         }
     }
 
-    /// Pro
+    /// Processes the response of
