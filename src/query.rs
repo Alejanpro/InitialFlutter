@@ -462,4 +462,6 @@ impl QueryManager {
         }
     }
 
-    /// Processes the response of
+    /// Processes the response of a sync query.
+    ///
+    /
