@@ -465,4 +465,4 @@ impl QueryManager {
     /// Processes the response of a sync query.
     ///
     /// The sync query emits a `complete` event.
-    fn recv_sync(&mut se
+    fn recv_sync(&mut self, query: Header, res: Resul
