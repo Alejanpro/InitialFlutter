@@ -466,4 +466,4 @@ impl QueryManager {
     ///
     /// The sync query emits a `complete` event.
     fn recv_sync(&mut self, query: Header, res: Result<(), Cid>) {
-        self.event
+        self.events.push_back(QueryEvent::Complete(que
