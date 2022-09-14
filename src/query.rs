@@ -469,4 +469,4 @@ impl QueryManager {
         self.events.push_back(QueryEvent::Complete(query.id, res));
     }
 
-    /// Di
+    /// Dispatches the response to a query h
