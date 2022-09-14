@@ -469,4 +469,5 @@ impl QueryManager {
         self.events.push_back(QueryEvent::Complete(query.id, res));
     }
 
-    /// Dispatches the response to a query h
+    /// Dispatches the response to a query handler.
+    pub fn inject_respon
