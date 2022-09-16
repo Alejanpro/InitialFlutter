@@ -470,4 +470,5 @@ impl QueryManager {
     }
 
     /// Dispatches the response to a query handler.
-    pub fn inject_response(&mut self, id: QueryId, res: Re
+    pub fn inject_response(&mut self, id: QueryId, res: Response) {
+        let
