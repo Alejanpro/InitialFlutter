@@ -471,4 +471,5 @@ impl QueryManager {
 
     /// Dispatches the response to a query handler.
     pub fn inject_response(&mut self, id: QueryId, res: Response) {
-        let query = if let Some(query) = self.qu
+        let query = if let Some(query) = self.queries.remove(&id) {
+      
