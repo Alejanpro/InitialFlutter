@@ -476,3 +476,4 @@ impl QueryManager {
         } else {
             return;
         };
+        tracing::trace!("{} {} {}", query.roo
