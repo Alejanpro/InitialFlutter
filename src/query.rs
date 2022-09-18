@@ -473,4 +473,6 @@ impl QueryManager {
     pub fn inject_response(&mut self, id: QueryId, res: Response) {
         let query = if let Some(query) = self.queries.remove(&id) {
             query.hdr
-       
+        } else {
+            return;
+        };
