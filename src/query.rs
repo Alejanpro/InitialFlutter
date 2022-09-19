@@ -479,4 +479,5 @@ impl QueryManager {
         tracing::trace!("{} {} {}", query.root, query.id, res);
         match res {
             Response::Have(peer, have) => {
-                self.re
+                self.recv_have(query, peer, have);
+      
