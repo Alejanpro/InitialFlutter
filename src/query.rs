@@ -480,4 +480,5 @@ impl QueryManager {
         match res {
             Response::Have(peer, have) => {
                 self.recv_have(query, peer, have);
-      
+            }
+            Response::Blo
