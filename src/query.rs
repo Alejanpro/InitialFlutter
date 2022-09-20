@@ -481,4 +481,5 @@ impl QueryManager {
             Response::Have(peer, have) => {
                 self.recv_have(query, peer, have);
             }
-            Response::Blo
+            Response::Block(peer, block) => {
+                
