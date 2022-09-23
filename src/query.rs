@@ -487,4 +487,7 @@ impl QueryManager {
             Response::MissingBlocks(cids) => {
                 self.recv_missing_blocks(query, cids);
             }
-        
+        }
+    }
+
+    /// Returns the he
