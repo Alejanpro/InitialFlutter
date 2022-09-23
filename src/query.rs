@@ -485,4 +485,6 @@ impl QueryManager {
                 self.recv_block(query, peer, block);
             }
             Response::MissingBlocks(cids) => {
-                self.recv_missing_blocks(q
+                self.recv_missing_blocks(query, cids);
+            }
+        
