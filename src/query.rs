@@ -491,4 +491,4 @@ impl QueryManager {
     }
 
     /// Returns the header of a query.
-    pub fn query_info(&self,
+    pub fn query_info(&self, id: QueryId) -> Option<&Header
