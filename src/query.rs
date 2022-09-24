@@ -490,4 +490,5 @@ impl QueryManager {
         }
     }
 
-    /// Returns the he
+    /// Returns the header of a query.
+    pub fn query_info(&self,
