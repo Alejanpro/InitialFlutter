@@ -492,4 +492,5 @@ impl QueryManager {
 
     /// Returns the header of a query.
     pub fn query_info(&self, id: QueryId) -> Option<&Header> {
-        self.queries.g
+        self.queries.get(&id).map(|q| &q.hdr)
+   
