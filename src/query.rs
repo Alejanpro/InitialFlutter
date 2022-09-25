@@ -496,4 +496,4 @@ impl QueryManager {
     }
 
     /// Retrieves the next query event.
-    pub fn ne
+    pub fn next(&mut self) -> Option<Qu
