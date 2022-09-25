@@ -495,4 +495,5 @@ impl QueryManager {
         self.queries.get(&id).map(|q| &q.hdr)
     }
 
-    /// Retrieves the 
+    /// Retrieves the next query event.
+    pub fn ne
