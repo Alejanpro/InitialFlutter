@@ -497,4 +497,8 @@ impl QueryManager {
 
     /// Retrieves the next query event.
     pub fn next(&mut self) -> Option<QueryEvent> {
-        self.events.p
+        self.events.pop_front()
+    }
+}
+
+#[cfg(tes
