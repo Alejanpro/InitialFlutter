@@ -504,3 +504,4 @@ impl QueryManager {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use tracing_subscriber::fmt::
