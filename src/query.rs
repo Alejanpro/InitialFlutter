@@ -501,4 +501,6 @@ impl QueryManager {
     }
 }
 
-#[cfg(tes
+#[cfg(test)]
+mod tests {
+    use super::*;
