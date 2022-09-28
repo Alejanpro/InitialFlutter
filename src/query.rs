@@ -504,4 +504,6 @@ impl QueryManager {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use tracing_subscriber::fmt::
+    use tracing_subscriber::fmt::TestWriter;
+
+    fn tracing_try
