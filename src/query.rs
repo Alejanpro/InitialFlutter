@@ -506,4 +506,5 @@ mod tests {
     use super::*;
     use tracing_subscriber::fmt::TestWriter;
 
-    fn tracing_try
+    fn tracing_try_init() {
+        tracing_subscri
