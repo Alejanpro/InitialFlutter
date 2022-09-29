@@ -507,4 +507,5 @@ mod tests {
     use tracing_subscriber::fmt::TestWriter;
 
     fn tracing_try_init() {
-        tracing_subscri
+        tracing_subscriber::fmt()
+            .wit
