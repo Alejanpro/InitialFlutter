@@ -508,4 +508,4 @@ mod tests {
 
     fn tracing_try_init() {
         tracing_subscriber::fmt()
-            .wit
+            .with_env_filter(tracing_subscriber::
