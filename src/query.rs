@@ -510,4 +510,8 @@ mod tests {
         tracing_subscriber::fmt()
             .with_env_filter(tracing_subscriber::EnvFilter::from_default_env())
             .with_writer(TestWriter::new())
-            .try_init
+            .try_init()
+            .ok();
+    }
+
+   
