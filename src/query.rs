@@ -514,4 +514,5 @@ mod tests {
             .ok();
     }
 
-    fn gen_peers(n: usize) -> Vec<Pee
+    fn gen_peers(n: usize) -> Vec<PeerId> {
+        let mut peers = Vec
