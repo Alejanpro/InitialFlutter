@@ -515,4 +515,5 @@ mod tests {
     }
 
     fn gen_peers(n: usize) -> Vec<PeerId> {
-        let mut peers = Vec
+        let mut peers = Vec::with_capacity(n);
+      
