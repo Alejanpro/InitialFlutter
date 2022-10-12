@@ -517,4 +517,7 @@ mod tests {
     fn gen_peers(n: usize) -> Vec<PeerId> {
         let mut peers = Vec::with_capacity(n);
         for _ in 0..n {
-            peers.push(PeerId::random()
+            peers.push(PeerId::random());
+        }
+        peers
+   
