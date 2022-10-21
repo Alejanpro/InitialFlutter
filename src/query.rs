@@ -520,4 +520,6 @@ mod tests {
             peers.push(PeerId::random());
         }
         peers
-   
+    }
+
+    fn assert_request(e
