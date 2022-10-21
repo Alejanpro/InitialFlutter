@@ -522,4 +522,5 @@ mod tests {
         peers
     }
 
-    fn assert_request(event: Option<QueryEvent>, req: Reque
+    fn assert_request(event: Option<QueryEvent>, req: Request) -> QueryId {
+        if let Som
