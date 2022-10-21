@@ -522,4 +522,4 @@ mod tests {
         peers
     }
 
-    fn assert_request(e
+    fn assert_request(event: Option<QueryEvent>, req: Reque
