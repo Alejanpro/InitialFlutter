@@ -523,4 +523,4 @@ mod tests {
     }
 
     fn assert_request(event: Option<QueryEvent>, req: Request) -> QueryId {
-        if let Som
+        if let Some(QueryEvent::Request(id, req2))
