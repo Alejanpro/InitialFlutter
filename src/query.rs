@@ -527,4 +527,4 @@ mod tests {
             assert_eq!(req2, req);
             id
         } else {
-    
+            panic!("{:?} is not a 
