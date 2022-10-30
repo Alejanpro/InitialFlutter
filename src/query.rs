@@ -527,4 +527,6 @@ mod tests {
             assert_eq!(req2, req);
             id
         } else {
-            panic!("{:?} is not a 
+            panic!("{:?} is not a request", event);
+        }
+    }
