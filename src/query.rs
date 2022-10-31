@@ -531,4 +531,4 @@ mod tests {
         }
     }
 
-    fn assert_complete(event: Option<QueryEvent>, id: Que
+    fn assert_complete(event: Option<QueryEvent>, id: QueryId, res: Result<(), Cid>) {
