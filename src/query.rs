@@ -530,3 +530,5 @@ mod tests {
             panic!("{:?} is not a request", event);
         }
     }
+
+    fn assert_complete(even
