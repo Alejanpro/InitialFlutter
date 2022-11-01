@@ -532,3 +532,4 @@ mod tests {
     }
 
     fn assert_complete(event: Option<QueryEvent>, id: QueryId, res: Result<(), Cid>) {
+        if let Some(QueryEv
