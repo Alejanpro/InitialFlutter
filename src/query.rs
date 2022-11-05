@@ -535,3 +535,5 @@ mod tests {
         if let Some(QueryEvent::Complete(id2, res2)) = event {
             assert_eq!(id, id2);
             assert_eq!(res, res2);
+        } else {
+           
