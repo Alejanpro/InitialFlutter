@@ -534,4 +534,4 @@ mod tests {
     fn assert_complete(event: Option<QueryEvent>, id: QueryId, res: Result<(), Cid>) {
         if let Some(QueryEvent::Complete(id2, res2)) = event {
             assert_eq!(id, id2);
- 
+            assert_eq!(res, res2);
