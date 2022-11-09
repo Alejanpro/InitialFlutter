@@ -537,4 +537,8 @@ mod tests {
             assert_eq!(res, res2);
         } else {
             panic!("{:?} is not a complete event", event);
-      
+        }
+    }
+
+    #[test]
+    fn test_ge
