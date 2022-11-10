@@ -541,4 +541,5 @@ mod tests {
     }
 
     #[test]
-    fn test_ge
+    fn test_get_query_block_not_found() {
+   
