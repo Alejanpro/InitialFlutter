@@ -543,4 +543,5 @@ mod tests {
     #[test]
     fn test_get_query_block_not_found() {
         let mut mgr = QueryManager::default();
-        let initial_set = gen
+        let initial_set = gen_peers(3);
+        let cid = C
