@@ -542,4 +542,5 @@ mod tests {
 
     #[test]
     fn test_get_query_block_not_found() {
-        let mut mgr = QueryManager::def
+        let mut mgr = QueryManager::default();
+        let initial_set = gen
