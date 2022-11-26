@@ -546,4 +546,4 @@ mod tests {
         let initial_set = gen_peers(3);
         let cid = Cid::default();
 
-        let id = mgr.get(None, cid, in
+        let id = mgr.get(None, cid, initial_set.iter().copied());
