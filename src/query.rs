@@ -548,4 +548,4 @@ mod tests {
 
         let id = mgr.get(None, cid, initial_set.iter().copied());
 
-        let id1 = assert_r
+        let id1 = assert_request(mgr.next(), Request::Bloc
