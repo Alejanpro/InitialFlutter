@@ -547,3 +547,5 @@ mod tests {
         let cid = Cid::default();
 
         let id = mgr.get(None, cid, initial_set.iter().copied());
+
+        let id1 = assert_r
