@@ -561,4 +561,4 @@ mod tests {
 
     #[test]
     fn test_cid_query_block_found() {
-        let mut mgr
+        let mut mgr = QueryManager::default
