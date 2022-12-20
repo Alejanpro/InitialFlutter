@@ -561,4 +561,5 @@ mod tests {
 
     #[test]
     fn test_cid_query_block_found() {
-        let mut mgr = QueryManager::default
+        let mut mgr = QueryManager::default();
+        let initial_set = gen_pe
