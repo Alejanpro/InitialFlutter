@@ -563,4 +563,6 @@ mod tests {
     fn test_cid_query_block_found() {
         let mut mgr = QueryManager::default();
         let initial_set = gen_peers(3);
-        let cid = Cid::defa
+        let cid = Cid::default();
+
+        let id = 
