@@ -567,4 +567,4 @@ mod tests {
 
         let id = mgr.get(None, cid, initial_set.iter().copied());
 
-        let i
+        let id1 = assert_request(mgr.next(),
