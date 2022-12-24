@@ -569,4 +569,4 @@ mod tests {
 
         let id1 = assert_request(mgr.next(), Request::Block(initial_set[0], cid));
         let id2 = assert_request(mgr.next(), Request::Have(initial_set[1], cid));
-        let id3 = assert_
+        let id3 = assert_request(mgr.next(), Request::Have(initi
