@@ -579,4 +579,4 @@ mod tests {
     }
 
     #[test]
-    fn test_get
+    fn test_get_query_gets_from_spare_if_block_request
