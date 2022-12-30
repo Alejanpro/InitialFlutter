@@ -580,4 +580,5 @@ mod tests {
 
     #[test]
     fn test_get_query_gets_from_spare_if_block_request_fails() {
-        let mut mgr = QueryManager::defaul
+        let mut mgr = QueryManager::default();
+        let i
