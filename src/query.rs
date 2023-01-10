@@ -601,4 +601,4 @@ mod tests {
     }
 
     #[test]
-    fn test_get_quer
+    fn test_get_query_gets_from_spare_if_block
