@@ -602,4 +602,5 @@ mod tests {
 
     #[test]
     fn test_get_query_gets_from_spare_if_block_request_fails_after_have_is_received() {
-        let mut mgr = QueryManager::defaul
+        let mut mgr = QueryManager::default();
+        let initial_set = gen_peers
