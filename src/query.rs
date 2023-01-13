@@ -604,4 +604,6 @@ mod tests {
     fn test_get_query_gets_from_spare_if_block_request_fails_after_have_is_received() {
         let mut mgr = QueryManager::default();
         let initial_set = gen_peers(3);
-        let cid = Cid::default()
+        let cid = Cid::default();
+
+        let id = mgr.get(N
