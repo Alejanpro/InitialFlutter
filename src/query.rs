@@ -614,4 +614,4 @@ mod tests {
 
         mgr.inject_response(id1, Response::Block(initial_set[0], false));
         mgr.inject_response(id2, Response::Have(initial_set[1], true));
-        mgr
+        mgr.inject_response
