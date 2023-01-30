@@ -616,4 +616,4 @@ mod tests {
         mgr.inject_response(id2, Response::Have(initial_set[1], true));
         mgr.inject_response(id3, Response::Have(initial_set[2], true));
 
-        let id1 = assert_request(mgr.next(), Req
+        let id1 = assert_request(mgr.next(), Request::Block(initial_set[1], cid));
