@@ -627,4 +627,5 @@ mod tests {
 
     #[test]
     fn test_sync_query() {
-        trac
+        tracing_try_init();
+        let mut mg
