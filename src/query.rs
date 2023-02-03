@@ -626,4 +626,5 @@ mod tests {
     }
 
     #[test]
-    fn 
+    fn test_sync_query() {
+        trac
