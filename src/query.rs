@@ -630,4 +630,6 @@ mod tests {
         tracing_try_init();
         let mut mgr = QueryManager::default();
         let providers = gen_peers(3);
-        let cid = Cid
+        let cid = Cid::default();
+
+        let i
