@@ -629,4 +629,5 @@ mod tests {
     fn test_sync_query() {
         tracing_try_init();
         let mut mgr = QueryManager::default();
-        let providers = 
+        let providers = gen_peers(3);
+        let cid = Cid
