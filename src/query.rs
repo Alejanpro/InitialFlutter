@@ -632,4 +632,4 @@ mod tests {
         let providers = gen_peers(3);
         let cid = Cid::default();
 
-        let i
+        let id = mgr.sync(cid, providers
