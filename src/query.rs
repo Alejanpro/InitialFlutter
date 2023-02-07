@@ -632,4 +632,6 @@ mod tests {
         let providers = gen_peers(3);
         let cid = Cid::default();
 
-        let id = mgr.sync(cid, providers.clone(), std::iter::once(cid)
+        let id = mgr.sync(cid, providers.clone(), std::iter::once(cid));
+
+        let id1 = assert_req
