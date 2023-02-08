@@ -634,4 +634,5 @@ mod tests {
 
         let id = mgr.sync(cid, providers.clone(), std::iter::once(cid));
 
-        let id1 = assert_request(mgr.next(), Request::Block(p
+        let id1 = assert_request(mgr.next(), Request::Block(providers[0], cid));
+ 
