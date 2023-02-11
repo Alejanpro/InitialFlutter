@@ -636,4 +636,6 @@ mod tests {
 
         let id1 = assert_request(mgr.next(), Request::Block(providers[0], cid));
         let id2 = assert_request(mgr.next(), Request::Have(providers[1], cid));
-        let id3 = assert_request(mgr.next(), Request::Have(pr
+        let id3 = assert_request(mgr.next(), Request::Have(providers[2], cid));
+
+       
