@@ -640,4 +640,6 @@ mod tests {
 
         mgr.inject_response(id1, Response::Block(providers[0], true));
         mgr.inject_response(id2, Response::Have(providers[1], false));
-        mgr.inject_response(id3, Response::Have(provid
+        mgr.inject_response(id3, Response::Have(providers[2], false));
+
+       
