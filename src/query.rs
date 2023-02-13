@@ -639,4 +639,5 @@ mod tests {
         let id3 = assert_request(mgr.next(), Request::Have(providers[2], cid));
 
         mgr.inject_response(id1, Response::Block(providers[0], true));
-        mgr.inject_response(id2, Response::Have(providers[
+        mgr.inject_response(id2, Response::Have(providers[1], false));
+        mgr.injec
