@@ -643,4 +643,6 @@ mod tests {
         mgr.inject_response(id3, Response::Have(providers[2], false));
 
         let id1 = assert_request(mgr.next(), Request::MissingBlocks(cid));
-        mgr.inject_response(id1, Response::MissingBlocks(vec!
+        mgr.inject_response(id1, Response::MissingBlocks(vec![]));
+
+        assert_complet
