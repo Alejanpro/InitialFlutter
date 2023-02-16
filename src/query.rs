@@ -649,4 +649,5 @@ mod tests {
     }
 
     #[test]
-    fn test_sync_
+    fn test_sync_query_empty() {
+        tracing_try_init(
