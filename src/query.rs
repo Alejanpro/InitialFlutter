@@ -646,3 +646,7 @@ mod tests {
         mgr.inject_response(id1, Response::MissingBlocks(vec![]));
 
         assert_complete(mgr.next(), id, Ok(()));
+    }
+
+    #[test]
+    fn test_sync_
