@@ -650,4 +650,5 @@ mod tests {
 
     #[test]
     fn test_sync_query_empty() {
-        tracing_try_init(
+        tracing_try_init();
+        let mut mgr = QueryManage
