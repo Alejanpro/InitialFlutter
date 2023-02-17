@@ -652,4 +652,5 @@ mod tests {
     fn test_sync_query_empty() {
         tracing_try_init();
         let mut mgr = QueryManager::default();
-        let cid =
+        let cid = Cid::default();
+        
