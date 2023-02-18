@@ -653,4 +653,5 @@ mod tests {
         tracing_try_init();
         let mut mgr = QueryManager::default();
         let cid = Cid::default();
-        let id = mgr.sync(cid, vec![],
+        let id = mgr.sync(cid, vec![], std::iter::empty());
+        
