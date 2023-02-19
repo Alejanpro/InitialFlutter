@@ -654,4 +654,5 @@ mod tests {
         let mut mgr = QueryManager::default();
         let cid = Cid::default();
         let id = mgr.sync(cid, vec![], std::iter::empty());
-        let id1 = assert_request(mgr.next(), Request::MissingBlock
+        let id1 = assert_request(mgr.next(), Request::MissingBlocks(cid));
+        mgr.inj
