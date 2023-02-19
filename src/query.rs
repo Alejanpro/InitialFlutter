@@ -655,4 +655,4 @@ mod tests {
         let cid = Cid::default();
         let id = mgr.sync(cid, vec![], std::iter::empty());
         let id1 = assert_request(mgr.next(), Request::MissingBlocks(cid));
-        mgr.inj
+        mgr.inject_response(id1, Response::Missi
