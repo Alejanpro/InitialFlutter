@@ -656,4 +656,5 @@ mod tests {
         let id = mgr.sync(cid, vec![], std::iter::empty());
         let id1 = assert_request(mgr.next(), Request::MissingBlocks(cid));
         mgr.inject_response(id1, Response::MissingBlocks(vec![]));
-        assert_comple
+        assert_complete(mgr.next(), id, Ok(()));
+    }
