@@ -56,3 +56,32 @@ lazy_static! {
             "Number of bitswap responses sent to peers.",
         ),
         &["type"],
+    )
+    .unwrap();
+    pub static ref THROTTLED_INBOUND: IntCounter = IntCounter::new(
+        "bitswap_throttled_too_many_inbound_total",
+        "Number of too many inbound events.",
+    )
+    .unwrap();
+    pub static ref THROTTLED_OUTBOUND: IntCounter = IntCounter::new(
+        "bitswap_throttled_resume_send_total",
+        "Number of resume send events.",
+    )
+    .unwrap();
+    pub static ref OUTBOUND_FAILURE: IntCounterVec = IntCounterVec::new(
+        Opts::new(
+            "bitswap_outbound_failures_total",
+            "Number of outbound failures.",
+        ),
+        &["type"],
+    )
+    .unwrap();
+    pub static ref INBOUND_FAILURE: IntCounterVec = IntCounterVec::new(
+        Opts::new(
+            "bitswap_inbound_failures_total",
+            "Number of inbound failures.",
+        ),
+        &["type"],
+    )
+    .unwrap();
+}
